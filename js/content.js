@@ -353,12 +353,11 @@ window.SITE = {
         id: "performance",
         numeral: "II",
         title: "Performance",
-        note: "On stage — concerts, ensembles, recitals, and masterclasses.",
+        note: "On stage — concerts, ensembles, and recitals.",
         items: [
           { src: "assets/images/archive/ensemble-01.jpg", kind: "Ensemble", title: "Euphonium & Tuba Quartet", year: null, place: null, layout: "feature" },
           { src: "assets/images/archive/performance-01.jpg", kind: "Concert / Performance", title: null, year: null, place: null, layout: "tall" },
-          { src: "assets/images/archive/performance-02.jpg", kind: "Graduation Recital", title: "K-ARTS Graduation Recital", year: "2023", place: "Lee Kang Sook Hall", layout: "center-m", position: "50% 100%" },
-          { src: "assets/images/archive/masterclass-01.jpg", kind: "Masterclass", title: null, year: null, place: null, layout: "small-r" },
+          { src: "assets/images/archive/performance-02.jpg", kind: "Graduation Recital", title: "K-ARTS Graduation Recital", year: "2023", place: "Lee Kang Sook Hall", layout: "center", position: "50% 100%" },
         ],
       },
       {
