@@ -277,14 +277,14 @@ window.SITE = {
       year: "2024",
       items: [
         { selected: true, title: "Musica Euphonium Tuba Ensemble", venue: "Seoul Arts Center" },
-        { selected: true, title: "Arteum Brass Band with David Childs", venue: "Bucheon Arts Center Concert Hall" },
+        { selected: true, title: "Artenium Brass Band with David Childs", venue: "Bucheon Arts Center Concert Hall" },
       ],
     },
     {
       year: "2023",
       items: [
         { selected: true, title: "K-ARTS Graduation Recital", venue: "Lee Kang Sook Hall, Korea National University of Arts" },
-        { selected: true, title: "Arteum Brass Band with Bastien Baumet", venue: "Konkuk University Saecheonnyeon Hall Concert Hall" },
+        { selected: true, title: "Artenium Brass Band with Bastien Baumet", venue: "Konkuk University Saecheonnyeon Hall Concert Hall" },
         { title: "Masterclass with Bastien Baumet", venue: "Korea National University of Arts" },
       ],
     },
@@ -333,17 +333,20 @@ window.SITE = {
         numeral: "I",
         title: "Posters",
         note: "Recital and concert posters.",
-        // "poster" layout = three per row, each poster at its own proportion. Newest first.
+        // view: "shelf" = the curved poster shelf (drag / arrows / timeline; click the front poster to open it).
+        // Remove the `view` line to go back to the plain grid ("poster" layout, three per row).
+        // spine = colour of the poster's edge on the shelf (any CSS colour). Newest first.
+        view: "shelf",
         items: [
-          { src: "assets/images/archive/poster-korea-low-brass-ensemble-2026.jpg", kind: "Ensemble", title: "Korea Low Brass Ensemble, 7th Regular Concert", year: "2026", place: "Seoul Arts Center IBK Chamber Hall", layout: "poster" },
-          { src: "assets/images/archive/poster-korea-symphonic-brass-2024.jpg", kind: "Brass Band", title: "Korea Symphonic Brass — City of Gold", year: "2024", place: "Gyeongju Arts Center Hwarang Hall", layout: "poster" },
-          { src: "assets/images/archive/poster-korea-low-brass-ensemble-2024.jpg", kind: "Ensemble", title: "Korea Low Brass Ensemble, 5th Regular Concert", year: "2024", place: "Seoul Arts Center IBK Chamber Hall", layout: "poster" },
-          { src: "assets/images/archive/poster-musica-euphonium-tuba-ensemble-2024.jpg", kind: "Ensemble", title: "Musica Euphonium Tuba Ensemble — Re:TURN", year: "2024", place: "Seoul Arts Center Recital Hall", layout: "poster" },
-          { src: "assets/images/archive/poster-arteum-brass-band-2024.jpg", kind: "Brass Band", title: "Arteum Brass Band Masters Series with David Childs", year: "2024", place: "Bucheon Arts Center Concert Hall", layout: "poster" },
-          { src: "assets/images/archive/poster-graduation-recital-2023.jpg", kind: "Euphonium Recital", title: "Graduation Recital", year: "2023", place: "Lee Kang Sook Hall", layout: "poster" },
-          { src: "assets/images/archive/poster-korean-national-symphony-2022.jpg", kind: "Orchestra", title: "National Symphony Orchestra of Korea — Pictures at an Exhibition", year: "2022", place: "Seoul Arts Center Concert Hall", layout: "poster" },
-          { src: "assets/images/archive/poster-knua-wind-orchestra-2022.jpg", kind: "Wind Orchestra", title: "KNUA Wind Orchestra, 39th Regular Concert", year: "2022", place: "Lee Kang Sook Hall", layout: "poster" },
-          { src: "assets/images/archive/poster-euphonium-project-korea-2020.jpg", kind: "Ensemble", title: "Euphonium Project in Korea — Ensemble", year: "2020", place: "Mozart Hall", layout: "poster" },
+          { src: "assets/images/archive/poster-korea-low-brass-ensemble-2026.jpg", kind: "Ensemble", title: "Korea Low Brass Ensemble, 7th Regular Concert", year: "2026", place: "Seoul Arts Center IBK Chamber Hall", layout: "poster", spine: "#201e20" },
+          { src: "assets/images/archive/poster-korea-symphonic-brass-2024.jpg", kind: "Brass Band", title: "Korea Symphonic Brass — City of Gold", year: "2024", place: "Gyeongju Arts Center Hwarang Hall", layout: "poster", spine: "#6a5952" },
+          { src: "assets/images/archive/poster-korea-low-brass-ensemble-2024.jpg", kind: "Ensemble", title: "Korea Low Brass Ensemble, 5th Regular Concert", year: "2024", place: "Seoul Arts Center IBK Chamber Hall", layout: "poster", spine: "#90b9b9" },
+          { src: "assets/images/archive/poster-musica-euphonium-tuba-ensemble-2024.jpg", kind: "Ensemble", title: "Musica Euphonium Tuba Ensemble — Re:TURN", year: "2024", place: "Seoul Arts Center Recital Hall", layout: "poster", spine: "#b1b8bf" },
+          { src: "assets/images/archive/poster-arteum-brass-band-2024.jpg", kind: "Brass Band", title: "Artenium Brass Band Masters Series with David Childs", year: "2024", place: "Bucheon Arts Center Concert Hall", layout: "poster", spine: "#3b342e" },
+          { src: "assets/images/archive/poster-graduation-recital-2023.jpg", kind: "Euphonium Recital", title: "Graduation Recital", year: "2023", place: "Lee Kang Sook Hall", layout: "poster", spine: "#6f676a" },
+          { src: "assets/images/archive/poster-korean-national-symphony-2022.jpg", kind: "Orchestra", title: "National Symphony Orchestra of Korea — Pictures at an Exhibition", year: "2022", place: "Seoul Arts Center Concert Hall", layout: "poster", spine: "#485a59" },
+          { src: "assets/images/archive/poster-knua-wind-orchestra-2022.jpg", kind: "Wind Orchestra", title: "KNUA Wind Orchestra, 39th Regular Concert", year: "2022", place: "Lee Kang Sook Hall", layout: "poster", spine: "#cccad5" },
+          { src: "assets/images/archive/poster-euphonium-project-korea-2020.jpg", kind: "Ensemble", title: "Euphonium Project in Korea — Ensemble", year: "2020", place: "Mozart Hall", layout: "poster", spine: "#bebebd" },
         ],
       },
       {

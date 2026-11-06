@@ -180,6 +180,12 @@
     });
   }
 
+  /* ---------- Poster shelf (Archive chapters with view: "shelf") ---------- */
+  if (window.Shelf)
+    ar.chapters
+      .filter((ch) => ch.view === "shelf")
+      .forEach((ch) => window.Shelf.init($(`[data-shelf="${ch.id}"]`), ch.items));
+
   /* ---------- Hero staff → waveform ---------- */
   window.Staff && window.Staff.init(document.getElementById("staff"), S.hero.trajectory);
 })();

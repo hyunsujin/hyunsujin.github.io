@@ -300,7 +300,11 @@
         <h3 class="archive__chapter-title">${esc(chapter.title)}</h3>
         ${chapter.note ? `<p class="archive__note">${esc(chapter.note)}</p>` : ""}
       </header>
-      <div class="archive__grid">${chapter.items.map(ArchiveItem).join("")}</div>
+      ${
+        chapter.view === "shelf"
+          ? `<div class="shelf" data-shelf="${esc(chapter.id)}"></div>`
+          : `<div class="archive__grid">${chapter.items.map(ArchiveItem).join("")}</div>`
+      }
     </section>`;
   }
 

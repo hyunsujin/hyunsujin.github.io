@@ -1467,3 +1467,282 @@ a.footer__tag:hover { color: var(--navy); }
   .cv-entry__body { grid-row: auto; }
   .staff { height: 60px; }
 }
+
+/* =====================================================================
+   POSTER SHELF (Archive chapters with view: "shelf" — js/shelf.js)
+   Posters stand edge-on along a curved shelf; the front one turns to
+   face the viewer. --shelf-h is the poster height on the shelf.
+   ===================================================================== */
+
+.shelf {
+  --shelf-h: clamp(15rem, min(56vh, 44vw), 30rem);
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.shelf__viewport {
+  position: relative;
+  height: calc(var(--shelf-h) + 6rem);
+  margin-inline: calc(var(--gutter) * -0.5);
+  overflow: hidden;
+  touch-action: pan-y;
+  cursor: grab;
+  outline-offset: 4px;
+  /* the arc fades out at both ends instead of hitting the edge */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);
+}
+.shelf__viewport.is-dragging { cursor: grabbing; }
+.shelf__viewport.is-over-cover { cursor: zoom-in; }
+.shelf__probe { position: absolute; width: 0; height: var(--shelf-h); visibility: hidden; }
+
+.shelf__floor {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(50% 50% at 50% 40%, rgba(17, 27, 46, 0.22), rgba(17, 27, 46, 0.07) 55%, transparent 72%);
+  pointer-events: none;
+}
+.shelf__scene {
+  position: absolute;
+  inset: 0;
+  perspective: 1400px;
+  perspective-origin: 50% 50%;
+}
+.shelf__stage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+}
+.tape {
+  position: absolute;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.tape__spine,
+.tape__cover {
+  position: absolute;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.tape__spine::after,
+.tape__cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: var(--shade, 0);
+  pointer-events: none;
+}
+.tape__spine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9em 0;
+  box-shadow: inset 1px 0 rgba(255, 255, 255, 0.18), inset -1px 0 rgba(0, 0, 0, 0.18);
+  font-family: var(--mono);
+  line-height: 1;
+  letter-spacing: 0.08em;
+}
+.tape__title {
+  flex: 1;
+  min-height: 0;
+  margin: 1.1em 0;
+  writing-mode: vertical-rl;
+  font-family: var(--serif);
+  font-size: 1.25em;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tape__no,
+.tape__year { font-size: 0.85em; opacity: 0.8; writing-mode: vertical-rl; }
+.tape__cover {
+  background: var(--bg-2);
+  box-shadow: 0 34px 60px -30px rgba(17, 27, 46, 0.55), 0 0 0 1px var(--line);
+}
+.tape__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* caption under the front poster */
+.shelf__caption {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  max-width: 44rem;
+  margin: 0.5rem auto 0;
+}
+.shelf__lines {
+  display: grid;
+  justify-items: center;
+  gap: 0.55rem;
+  text-align: center;
+}
+.shelf__mask {
+  display: grid;
+  width: 100%;
+  overflow: hidden;
+}
+.shelf__mask > span { grid-area: 1 / 1; padding-bottom: 0.08em; }
+.shelf__kicker {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+}
+.shelf__title {
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 2.6vw, 2rem);
+  line-height: 1.2;
+  color: var(--navy);
+  text-wrap: balance;
+}
+.shelf__rule { width: 18px; height: 1px; background: var(--accent); }
+.shelf__meta { font-size: 0.85rem; color: var(--muted); }
+.shelf__arrow {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: none;
+  color: var(--navy);
+  cursor: pointer;
+  transition: border-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+.shelf__arrow:hover { border-color: var(--accent); color: var(--accent-ink); }
+.shelf__arrow svg { width: 22px; height: 11px; fill: none; stroke: currentColor; stroke-width: 1.2; }
+
+/* year ruler */
+.ruler {
+  position: relative;
+  height: 2.5rem;
+  margin: clamp(1.75rem, 4vw, 2.75rem) 0.5rem 0;
+  color: var(--accent-ink);
+}
+.ruler__line { position: absolute; left: 0; right: 0; top: 12px; height: 1px; background: currentColor; opacity: 0.6; }
+.ruler__tick { position: absolute; top: 12px; width: 1px; height: 7px; background: currentColor; opacity: 0.35; }
+.ruler__tick.is-major { height: 13px; opacity: 0.7; }
+.ruler__label {
+  position: absolute;
+  top: 28px;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+}
+.ruler__label.is-first { transform: none; }
+.ruler__label.is-last { transform: translateX(-100%); }
+.ruler__dot {
+  position: absolute;
+  top: 12px;
+  width: 9px;
+  height: 9px;
+  margin: -4px 0 0 -4.5px;
+  border-radius: 50%;
+  background: var(--accent-ink);
+}
+.ruler__hit { position: absolute; inset: 0 -0.5rem; cursor: pointer; }
+
+.shelf__hint {
+  margin-top: 0.4rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* full-screen sheet that grows out of the front poster */
+.has-shelf-detail { overflow: hidden; }
+.shelf-detail {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 4vw;
+  padding: 6rem 6vw 3.5rem 7vw;
+  background: var(--bg);
+  overflow-y: auto;
+}
+.shelf-detail[hidden] { display: none; }
+.shelf-detail__close {
+  position: absolute;
+  top: 1.75rem;
+  left: 7vw;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: none;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--navy);
+  cursor: pointer;
+}
+.shelf-detail__close:hover { border-color: var(--accent); color: var(--accent-ink); }
+.shelf-detail__text { display: grid; gap: 1.1rem; max-width: 32rem; }
+.shelf-detail__line { overflow: hidden; }
+.shelf-detail__line > * { display: block; padding-bottom: 0.08em; }
+.shelf-detail__kicker {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+}
+.shelf-detail__title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2rem, 4.2vw, 3.6rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+}
+.shelf-detail__meta { font-family: var(--mono); font-size: 0.85rem; color: var(--ink-2); }
+.shelf-detail__place { font-family: var(--serif); font-style: italic; font-size: 1.1rem; color: var(--muted); }
+.shelf-detail__link {
+  justify-self: start;
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--accent-ink);
+  text-underline-offset: 4px;
+}
+.shelf-detail__figure { display: grid; place-items: center; min-width: 0; }
+.shelf-detail__poster { display: block; width: auto; max-width: 100%; height: min(78vh, 52rem); }
+
+@media (max-width: 760px) {
+  .shelf { --shelf-h: min(78vw, 42svh); }
+  .shelf__viewport { height: calc(var(--shelf-h) + 4rem); margin-inline: calc(var(--gutter) * -1); }
+  .shelf__caption { gap: 0.5rem; }
+  .shelf__arrow { width: 2.4rem; height: 2.4rem; }
+  .ruler { margin-top: 1.5rem; }
+
+  .shelf-detail {
+    grid-template-columns: 1fr;
+    align-content: start;
+    gap: 1.75rem;
+    padding: 4.5rem 1.5rem 3rem;
+  }
+  .shelf-detail__close { top: 1.25rem; left: 1.5rem; }
+  .shelf-detail__figure { order: -1; }
+  .shelf-detail__poster { height: 50svh; }
+  .shelf-detail__title { font-size: 2.1rem; }
+}
