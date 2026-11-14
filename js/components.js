@@ -292,6 +292,19 @@
     </figure>`;
   }
 
+  // A text-only archive entry (chapters with view: "notes").
+  function ArchiveNote(item) {
+    return `<li class="note">
+      <p class="note__year">${esc(item.year || "")}</p>
+      <div class="note__body">
+        ${item.kind ? `<p class="note__kind">${esc(item.kind)}</p>` : ""}
+        <h4 class="note__title">${esc(item.title)}</h4>
+        ${item.context ? `<p class="note__context">${esc(item.context)}</p>` : ""}
+        ${item.text ? `<p class="note__text">${[].concat(item.text).map(esc).join(" ")}</p>` : ""}
+      </div>
+    </li>`;
+  }
+
   // A chapter of the archive: numeral, title, a one-line note, then the grid.
   function ArchiveChapter(chapter) {
     return `<section class="archive__chapter" id="archive-${esc(chapter.id)}">
@@ -303,7 +316,9 @@
       ${
         chapter.view === "shelf"
           ? `<div class="shelf" data-shelf="${esc(chapter.id)}"></div>`
-          : `<div class="archive__grid">${chapter.items.map(ArchiveItem).join("")}</div>`
+          : chapter.view === "notes"
+            ? `<ol class="notes">${chapter.items.map(ArchiveNote).join("")}</ol>`
+            : `<div class="archive__grid">${chapter.items.map(ArchiveItem).join("")}</div>`
       }
     </section>`;
   }
@@ -446,6 +461,7 @@
     PublicationItem,
     PatentItem,
     ArchiveItem,
+    ArchiveNote,
     ArchiveChapter,
     PerformanceRecord,
     CVSection,

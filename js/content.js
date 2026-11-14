@@ -326,7 +326,7 @@ window.SITE = {
   // Mixing layouts is what makes the grid editorial — keep them varied.
   archive: {
     title: "Archive",
-    subtitle: "Posters, performances, and studio portraits.",
+    subtitle: "Posters, performances, studio portraits, and projects.",
     chapters: [
       {
         id: "posters",
@@ -368,6 +368,27 @@ window.SITE = {
         items: [
           { src: "assets/images/archive/studio-01.jpg", kind: "Studio", title: "Portrait with Euphonium", year: null, place: null, layout: "portrait-l" },
           { src: "assets/images/archive/studio-02.jpg", kind: "Studio", title: "Film Portrait", year: null, place: null, layout: "portrait-r" },
+        ],
+      },
+      {
+        id: "projects",
+        numeral: "IV",
+        title: "Projects",
+        note: "Collaborative and coursework projects.",
+        // view: "notes" = text entries (no images): year, kind, title, context, a short description.
+        view: "notes",
+        items: [
+          {
+            year: "2022",
+            kind: "Audio-Immersive Sound Piece",
+            title: "Nightmare (악몽)",
+            context: "Final project, Musicking (liberal arts course) · Team of six, planned and produced together",
+            text: [
+              "An audio-immersive piece about an empty school at night.",
+              "Listeners in a lecture room put their heads down, close their eyes and hear one shared soundtrack through earphones or the room speakers: rain, a ticking clock, a door in the wind, creaking desks and radio noise, over a cheolhyeongeum (Korean steel-string zither) melody.",
+              "The aim was to make a familiar, crowded classroom feel empty and uncanny, so that each listener is alone in the sound while the whole room shares it.",
+            ],
+          },
         ],
       },
     ],

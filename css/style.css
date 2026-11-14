@@ -1013,6 +1013,41 @@ a.btn:hover svg { transform: translate(2px, -2px); }
 }
 .archive__num { color: var(--accent-ink); }
 
+/* text-only entries (view: "notes") — same columns as the performance record */
+.notes { display: grid; }
+.note {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+  gap: 1rem clamp(1rem, 2vw, 1.75rem);
+  padding-block: 1.6rem;
+  border-top: 1px solid var(--line);
+}
+.note:first-child { border-top: 0; padding-top: 0; }
+.note__year {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  line-height: 1;
+  color: var(--navy);
+  font-variant-numeric: oldstyle-nums;
+}
+.note__body { display: grid; gap: 0.45rem; max-width: 40rem; }
+.note__kind {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+}
+.note__title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+  line-height: 1.2;
+  color: var(--navy);
+}
+.note__context { font-family: var(--serif); font-style: italic; font-size: 0.98rem; color: var(--teal); }
+.note__text { margin-top: 0.35rem; color: var(--ink-2); line-height: 1.65; }
+
 /* performance record — set like a concert programme */
 .record { margin-top: clamp(3.5rem, 7vw, 6rem); }
 .record__years { display: grid; }
@@ -1450,7 +1485,7 @@ a.footer__tag:hover { color: var(--navy); }
   .archive__grid > .archive__item--poster,
   .archive__grid > .archive__item--small-r { grid-column: span 1; }
   .archive__item--strip .archive__media { aspect-ratio: 16 / 9; }
-  .record__year { grid-template-columns: 1fr; gap: 1rem; }
+  .record__year, .note { grid-template-columns: 1fr; gap: 1rem; }
   .record__items { grid-template-columns: 1fr; gap: 1.2rem; }
   .cv-section { grid-template-columns: 1fr; gap: 1rem; }
 }
