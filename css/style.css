@@ -22,8 +22,8 @@
   --line-strong: rgba(17, 27, 46, 0.2);
 
   /* type */
-  --serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
-  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", sans-serif;
+  --serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, "Noto Serif KR", serif;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
   /* layout */
@@ -1790,3 +1790,39 @@ a.footer__tag:hover { color: var(--navy); }
   .shelf-detail__poster { height: 50svh; }
   .shelf-detail__title { font-size: 2.1rem; }
 }
+
+/* =====================================================================
+   LANGUAGE SWITCH (EN / 한국어 — js/i18n.js)
+   ===================================================================== */
+
+.lang {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.lang__opt {
+  padding: 0.2rem 0.1rem;
+  border: 0;
+  background: none;
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.lang__opt:hover { color: var(--accent-ink); }
+.lang__opt[aria-pressed="true"] {
+  color: var(--navy);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 4px;
+}
+.lang__sep { opacity: 0.5; }
+/* mobile top bar: switch sits at the top right, next to the name */
+.lang--compact { position: absolute; top: calc(0.9rem + env(safe-area-inset-top, 0px)); right: var(--gutter); }
+
+/* Korean: break lines between words, not inside them */
+html:lang(ko) body { word-break: keep-all; overflow-wrap: break-word; font-synthesis-style: none; }

@@ -47,6 +47,16 @@ Music × Technology × Human Experience — 개인 연구 포트폴리오 (GitHu
 - CV PDF → `assets/cv/`
   - `assets/cv/cv.pdf`는 `tools/cv-print.html`(`js/content.js`의 `cv` 데이터)로 만듭니다. CV 내용을 바꾸면 다시 만들어야 합니다: 저장소 폴더에서 `python3 -m http.server 8765` 실행 후 Chrome headless로 `--print-to-pdf=assets/cv/cv.pdf --no-pdf-header-footer http://localhost:8765/tools/cv-print.html`
 
+## 한국어 버전 — `js/content.ko.js`
+
+- 메뉴의 `EN / 한국어` 버튼으로 언어를 바꿉니다. 고른 언어는 그 브라우저에 기억됩니다.
+- 한국어로 바로 열리는 링크: `https://hyunsujin.github.io/?lang=ko`
+- `js/content.ko.js`는 `content.js`와 같은 구조로 한국어 글만 담습니다. 목록은 순서대로 짝이 맞습니다 (2번째 항목 ↔ 2번째 항목).
+- 값을 비워 두면 영어 그대로 표시됩니다 (논문·특허 제목, 저자명 등은 공식 영문 그대로 둠).
+- `content.js`에 항목을 추가하면 `content.ko.js`의 같은 위치에도 한국어를 추가하세요. 안 하면 그 항목만 영어로 나옵니다.
+- 버튼·제목 같은 고정 문구는 `content.js`와 `content.ko.js`의 `ui`에 있습니다.
+- CV PDF는 영문만 있습니다.
+
 ## 구조
 
 ```
@@ -60,4 +70,6 @@ js/staff.js         첫 화면의 오선 → 음파 애니메이션
 js/main.js          페이지 조립, 스크롤 하이라이트, 모바일 메뉴
 js/project.js       프로젝트 상세 페이지 조립 (stress-prediction.html)
 js/shelf.js         Archive 포스터 곡선 선반 + 크게 보기 화면
+js/content.ko.js    한국어 글 (content.js 위에 덮어씀)
+js/i18n.js          언어 선택 (EN / 한국어)
 ```

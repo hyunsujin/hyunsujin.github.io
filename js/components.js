@@ -17,6 +17,9 @@
 
   const isUsableUrl = (url) => !!url && !isPlaceholder(url);
 
+  // Fixed UI labels (content.js `ui`, swapped for Korean by js/i18n.js).
+  const ui = (key) => ((window.SITE && window.SITE.ui) || {})[key] || key;
+
   // Wraps placeholder text so it renders in a muted, dashed style.
   const text = (value) =>
     isPlaceholder(value) ? `<span class="ph">${esc(value)}</span>` : esc(value);
@@ -71,8 +74,8 @@
     const icon = opts.icon || "arrow";
     const cls = `btn ${opts.variant ? "btn--" + opts.variant : ""}`.trim();
     if (!isUsableUrl(link.url)) {
-      return `<span class="${cls} is-pending" aria-disabled="true" title="Link will be added soon">
-        ${esc(link.label)}<span class="btn__soon">soon</span></span>`;
+      return `<span class="${cls} is-pending" aria-disabled="true" title="${esc(ui("soonTitle"))}">
+        ${esc(link.label)}<span class="btn__soon">${esc(ui("soon"))}</span></span>`;
     }
     return `<a class="${cls}" href="${esc(link.url)}"${linkAttrs(link.url)}${
       opts.download ? " download" : ""
@@ -145,8 +148,20 @@
           <p class="sidebar__background">${esc(profile.background)}</p>
         </div>
         ${Navigation(nav, "", base)}
+        ${LangSwitch()}
         ${ContactList(profile.contact)}
       </div>`;
+  }
+
+  /* ---------- Language switch (EN / 한국어) ---------- */
+  // Clicks are handled in js/i18n.js.
+  function LangSwitch(variant = "") {
+    const cur = (window.SITE_LANG && window.SITE_LANG.current) || "en";
+    const opt = (code, label) =>
+      `<button type="button" class="lang__opt" data-lang="${code}" lang="${code}" aria-pressed="${cur === code}">${label}</button>`;
+    return `<div class="lang ${variant ? "lang--" + variant : ""}" role="group" aria-label="${esc(ui("language"))}">
+      ${opt("en", "EN")}<span class="lang__sep" aria-hidden="true">/</span>${opt("ko", "한국어")}
+    </div>`;
   }
 
   /* ---------- Section header ---------- */
@@ -165,12 +180,12 @@
     const num = String(index + 1).padStart(2, "0");
 
     const role = project.role
-      ? `<p class="rcard__role"><span class="rcard__label">My Role</span>${project.role.map(esc).join(" · ")}</p>`
+      ? `<p class="rcard__role"><span class="rcard__label">${esc(ui("myRole"))}</span>${project.role.map(esc).join(" · ")}</p>`
       : "";
 
     const details = project.details
       ? `<details class="rcard__details">
-          <summary><span>${esc(project.details.label || "Details")}</span></summary>
+          <summary><span>${esc(project.details.label || ui("details"))}</span></summary>
           <div class="rcard__details-body">
             ${(project.details.paragraphs || []).map((p) => `<p>${esc(p)}</p>`).join("")}
             ${
@@ -264,8 +279,8 @@
         ${pat.status ? `<p class="pub__badge">${esc(pat.status)}</p>` : ""}
         <h3 class="pub__title">${esc(pat.title)}</h3>
         <ul class="pub__status">
-          ${pat.number ? `<li>Application No. ${esc(pat.number)}</li>` : ""}
-          ${pat.filed ? `<li>Filed: ${esc(pat.filed)}</li>` : ""}
+          ${pat.number ? `<li>${esc(ui("applicationNo"))} ${esc(pat.number)}</li>` : ""}
+          ${pat.filed ? `<li>${esc(ui("filed"))} ${esc(pat.filed)}</li>` : ""}
         </ul>
       </div>
     </article>`;
@@ -300,7 +315,7 @@
         ${item.kind ? `<p class="note__kind">${esc(item.kind)}</p>` : ""}
         <h4 class="note__title">${esc(item.title)}</h4>
         ${item.context ? `<p class="note__context">${esc(item.context)}</p>` : ""}
-        ${item.role ? `<p class="note__role"><span>My role</span>${esc(item.role)}</p>` : ""}
+        ${item.role ? `<p class="note__role"><span>${esc(ui("myRole"))}</span>${esc(item.role)}</p>` : ""}
         ${item.text ? `<p class="note__text">${[].concat(item.text).map(esc).join(" ")}</p>` : ""}
       </div>
     </li>`;
@@ -394,7 +409,7 @@
       : CVEntries(section.entries);
     const note = section.note
       ? `<p class="cv-section__note">${esc(section.note.text)}
-          <a href="${esc(section.note.href)}">${esc(section.note.label)}</a>.</p>`
+          <a href="${esc(section.note.href)}">${esc(section.note.label)}</a>${esc(section.note.after ?? ".")}</p>`
       : "";
     return `<section class="cv-section" id="cv-${esc(section.id)}">
       <h3 class="cv-section__title">${esc(section.title)}</h3>
@@ -409,9 +424,9 @@
   function MaterialCard(m) {
     const ready = isUsableUrl(m.file);
     const actions = ready
-      ? `<a class="btn" href="${esc(m.file)}" target="_blank" rel="noopener">Open in new tab${ICONS.arrow}</a>
-         <a class="btn" href="${esc(m.file)}" download>Download PDF${ICONS.download}</a>`
-      : `<span class="btn is-pending" aria-disabled="true">PDF<span class="btn__soon">in preparation</span></span>`;
+      ? `<a class="btn" href="${esc(m.file)}" target="_blank" rel="noopener">${esc(ui("openNewTab"))}${ICONS.arrow}</a>
+         <a class="btn" href="${esc(m.file)}" download>${esc(ui("downloadPdf"))}${ICONS.download}</a>`
+      : `<span class="btn is-pending" aria-disabled="true">PDF<span class="btn__soon">${esc(ui("inPreparation"))}</span></span>`;
 
     // Poster image linking to the PDF: the <object> fallback, and the
     // preview on small screens where inline PDF viewers are unreliable.
@@ -419,7 +434,7 @@
       ? `<a class="material__fallback" href="${esc(m.file)}" target="_blank" rel="noopener">
           <img src="${esc(m.image)}" alt="${esc(m.title)}" loading="lazy">
         </a>`
-      : `<a class="btn" href="${esc(m.file)}" target="_blank" rel="noopener">Open PDF${ICONS.arrow}</a>`;
+      : `<a class="btn" href="${esc(m.file)}" target="_blank" rel="noopener">${esc(ui("openPdf"))}${ICONS.arrow}</a>`;
 
     const viewer =
       ready && m.preview
@@ -439,7 +454,7 @@
         </div>
         <div class="material__actions">${actions}</div>
       </header>
-      ${ready ? "" : `<p class="material__pending">The PDF will be added here once it is available.</p>`}
+      ${ready ? "" : `<p class="material__pending">${esc(ui("pdfPending"))}</p>`}
       ${viewer}
     </article>`;
   }
@@ -447,6 +462,8 @@
   window.Components = {
     esc,
     text,
+    ui,
+    LangSwitch,
     isUsableUrl,
     Media,
     LinkButton,

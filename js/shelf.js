@@ -18,6 +18,7 @@
   const smoothstep = (t) => t * t * (3 - 2 * t);
   const approach = (k, dt) => (reduce ? 1 : 1 - Math.exp(-k * dt));
   const pad = (i) => String(i + 1).padStart(2, "0");
+  const ui = (key) => window.Components.ui(key);
 
   const ARROW_L = `<svg viewBox="0 0 25 12" aria-hidden="true"><path d="M6 1L1 6l5 5M1 6h23"/></svg>`;
   const ARROW_R = `<svg viewBox="0 0 25 12" aria-hidden="true"><path d="M19 1l5 5-5 5M24 6H1"/></svg>`;
@@ -70,27 +71,27 @@
 
     root.innerHTML = `
       <div class="shelf__viewport" tabindex="0" role="group" aria-roledescription="carousel"
-           aria-label="Posters — use the left and right arrow keys to browse, Enter to open">
+           aria-label="${esc(ui("shelfAria"))}">
         <div class="shelf__probe" aria-hidden="true"></div>
         <div class="shelf__floor" aria-hidden="true"></div>
         <div class="shelf__scene" aria-hidden="true"><div class="shelf__stage">${tapes}</div></div>
       </div>
       <div class="shelf__caption">
-        <button class="shelf__arrow" type="button" data-step="-1" aria-label="Previous poster">${ARROW_L}</button>
+        <button class="shelf__arrow" type="button" data-step="-1" aria-label="${esc(ui("shelfPrev"))}">${ARROW_L}</button>
         <div class="shelf__lines" aria-hidden="true">
           <div class="shelf__mask shelf__kicker"></div>
           <div class="shelf__mask shelf__title"></div>
           <span class="shelf__rule"></span>
           <div class="shelf__mask shelf__meta"></div>
         </div>
-        <button class="shelf__arrow" type="button" data-step="1" aria-label="Next poster">${ARROW_R}</button>
+        <button class="shelf__arrow" type="button" data-step="1" aria-label="${esc(ui("shelfNext"))}">${ARROW_R}</button>
         <p class="visually-hidden" aria-live="polite" data-live></p>
       </div>
       <div class="ruler" aria-hidden="true">
         <span class="ruler__line"></span>${ticks}<span class="ruler__dot"></span>
         <span class="ruler__hit"></span>
       </div>
-      <p class="shelf__hint">Drag or use the arrows · click the front poster to open it</p>`;
+      <p class="shelf__hint">${esc(ui("shelfHint"))}</p>`;
 
     const q = (s) => root.querySelector(s);
     const viewport = q(".shelf__viewport");
@@ -167,7 +168,7 @@
       slide(masks.kicker, `${pad(i)} / ${pad(n - 1)} &nbsp;·&nbsp; ${esc(it.kind)}`, dir);
       slide(masks.title, esc(it.title || it.kind), dir);
       slide(masks.meta, esc([it.year, it.place].filter(Boolean).join(" — ")), dir);
-      live.textContent = [`Poster ${i + 1} of ${n}`, it.title || it.kind, it.year, it.place].filter(Boolean).join(", ");
+      live.textContent = [`${ui("shelfPoster")} ${i + 1} ${ui("shelfOf")} ${n}`, it.title || it.kind, it.year, it.place].filter(Boolean).join(", ");
     }
 
     /* ---------- frame ---------- */
@@ -333,13 +334,13 @@
     sheet.setAttribute("role", "dialog");
     sheet.setAttribute("aria-modal", "true");
     sheet.innerHTML = `
-      <button class="shelf-detail__close" type="button">Close</button>
+      <button class="shelf-detail__close" type="button">${esc(ui("shelfClose"))}</button>
       <div class="shelf-detail__text">
         <div class="shelf-detail__line"><p class="shelf-detail__kicker"></p></div>
         <div class="shelf-detail__line"><h3 class="shelf-detail__title"></h3></div>
         <div class="shelf-detail__line"><p class="shelf-detail__meta"></p></div>
         <div class="shelf-detail__line"><p class="shelf-detail__place"></p></div>
-        <div class="shelf-detail__line"><a class="shelf-detail__link" target="_blank" rel="noopener">View full image ↗</a></div>
+        <div class="shelf-detail__line"><a class="shelf-detail__link" target="_blank" rel="noopener">${esc(ui("shelfViewFull"))}</a></div>
       </div>
       <figure class="shelf-detail__figure">
         <svg class="shelf-detail__poster" preserveAspectRatio="xMidYMid meet" role="img">
@@ -378,13 +379,13 @@
       isOpen = true;
       opener = document.activeElement;
 
-      sq(".shelf-detail__kicker").textContent = `${pad(i)} / ${pad(n - 1)} · ${it.kind || "Poster"}`;
+      sq(".shelf-detail__kicker").textContent = `${pad(i)} / ${pad(n - 1)} · ${it.kind || ui("shelfPoster")}`;
       sq(".shelf-detail__title").textContent = it.title || it.kind;
       sq(".shelf-detail__meta").textContent = it.year || "";
       sq(".shelf-detail__place").textContent = it.place || "";
       sq(".shelf-detail__link").href = it.src;
       sheet.setAttribute("aria-label", it.title || it.kind);
-      svg.setAttribute("aria-label", `Poster — ${it.title || it.kind}`);
+      svg.setAttribute("aria-label", `${ui("shelfPoster")} — ${it.title || it.kind}`);
 
       // poster in a 474-wide box at its own proportion; ink blots are laid out for 474 × 900
       const vw = 474, vh = 474 / ratio[i];

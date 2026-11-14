@@ -6,7 +6,7 @@
 (function () {
   const S = window.SITE;
   const C = window.Components;
-  const { esc, text } = C;
+  const { esc, text, ui } = C;
   const $ = (sel, root = document) => root.querySelector(sel);
   const p = S.profile;
 
@@ -19,6 +19,7 @@
   $("#sidebar").innerHTML = C.Sidebar(p, S.nav);
   $("#topbar").innerHTML = `
     <a class="topbar__name" href="#top">${text(p.name)}</a>
+    ${C.LangSwitch("compact")}
     ${C.Navigation(S.nav, "compact")}`;
 
   /* ---------- Intro (hero + About): photo right, name and short bio left ---------- */
@@ -45,13 +46,13 @@
         </div>
         ${a.paragraphs.map((t) => `<p class="hero__bio">${esc(t)}</p>`).join("")}
         <div class="interests">
-          <h2 class="subhead">Research Interests</h2>
+          <h2 class="subhead">${esc(ui("researchInterests"))}</h2>
           ${C.TagList(a.interests, "default", "interests__tags")}
         </div>
         <p class="hero__tagline">${esc(p.tagline).replace(/×/g, '<span class="x">×</span>')}</p>
       </div>
     </div>
-    <div class="hero__wave" aria-label="A musical staff whose lines gradually become sound waves: ${esc(
+    <div class="hero__wave" aria-label="${esc(ui("staffAria"))}: ${esc(
       h.trajectory.join(", ")
     )}">
       <svg class="staff" id="staff" role="presentation"></svg>
@@ -69,28 +70,28 @@
   $("#research").innerHTML = `
     ${C.SectionHead(
       num("research"),
-      "Research",
-      "Research Experience",
-      "Research projects I have taken part in, grouped by where they took place."
+      ui("researchKicker"),
+      ui("researchTitle"),
+      ui("researchIntro")
     )}
     <ol class="timeline">${groups}</ol>`;
 
   /* ---------- Publications ---------- */
   $("#publications").innerHTML = `
-    ${C.SectionHead(num("publications"), "Publications", "Publications")}
+    ${C.SectionHead(num("publications"), ui("publicationsKicker"), ui("publicationsTitle"))}
     <div class="pubs">${S.publications.map(C.PublicationItem).join("")}</div>`;
 
   /* ---------- Patents ---------- */
   $("#patents").innerHTML = `
-    ${C.SectionHead(num("patents"), "Patents", "Patent Applications")}
+    ${C.SectionHead(num("patents"), ui("patentsKicker"), ui("patentsTitle"))}
     <div class="pubs">${S.patents.map(C.PatentItem).join("")}</div>`;
 
   /* ---------- Archive ---------- */
   const ar = S.archive;
   $("#archive").innerHTML = `
-    ${C.SectionHead(num("archive"), "Archive", ar.title, ar.subtitle)}
+    ${C.SectionHead(num("archive"), ui("archiveKicker"), ar.title, ar.subtitle)}
     ${ar.chapters.map(C.ArchiveChapter).join("")}
-    ${S.performances ? C.PerformanceRecord(S.performances, "Performance Experience") : ""}
+    ${S.performances ? C.PerformanceRecord(S.performances, ui("performanceRecord")) : ""}
     ${
       ar.outro
         ? `<p class="archive__outro"><span>${esc(ar.outro.text)}</span>
@@ -115,15 +116,15 @@
   );
   $("#cv").innerHTML = `
     <div class="cv-head">
-      ${C.SectionHead(num("cv"), "Curriculum Vitae", "CV")}
-      ${C.LinkButton({ label: "Download CV (PDF)", url: p.cvFile }, { icon: "download", download: true })}
+      ${C.SectionHead(num("cv"), ui("cvKicker"), ui("cvTitle"))}
+      ${C.LinkButton({ label: ui("downloadCv"), url: p.cvFile }, { icon: "download", download: true })}
     </div>
     <div class="cv">${cvSections.map(C.CVSection).join("")}</div>`;
 
   /* ---------- Contact + footer ---------- */
   $("#footer").innerHTML = `
     <div class="contact-block" id="contact">
-      <p class="kicker">Contact</p>
+      <p class="kicker">${esc(ui("contact"))}</p>
       <p class="contact-block__title">${esc(p.name)}</p>
       ${C.ContactList(p.contact, "large")}
     </div>

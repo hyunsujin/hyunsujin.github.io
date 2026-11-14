@@ -8,7 +8,7 @@
 (function () {
   const S = window.SITE;
   const C = window.Components;
-  const { esc, text } = C;
+  const { esc, text, ui } = C;
   const $ = (sel) => document.querySelector(sel);
   const p = S.profile;
   const HOME = "index.html";
@@ -23,6 +23,7 @@
   $("#sidebar").innerHTML = C.Sidebar(p, S.nav, HOME);
   $("#topbar").innerHTML = `
     <a class="topbar__name" href="${HOME}#top">${text(p.name)}</a>
+    ${C.LangSwitch("compact")}
     ${C.Navigation(S.nav, "compact", HOME)}`;
   document
     .querySelectorAll('[data-nav="research"]')
@@ -31,8 +32,8 @@
   /* ---------- Title, info, overview, materials ---------- */
   $("#project").innerHTML = `
     <header class="project__head">
-      <a class="project__back" href="${HOME}#project-${esc(project.id)}">← Research</a>
-      <p class="kicker">Research Publication</p>
+      <a class="project__back" href="${HOME}#project-${esc(project.id)}">${esc(ui("backToResearchShort"))}</a>
+      <p class="kicker">${esc(ui("researchPublication"))}</p>
       <h1 class="project__title">${esc(project.title)}</h1>
       <dl class="project__info">
         ${page.info
@@ -47,12 +48,12 @@
     </header>
 
     <section class="project__overview">
-      <h2 class="subhead">Overview</h2>
+      <h2 class="subhead">${esc(ui("overview"))}</h2>
       <p>${page.overview.map(esc).join(" ")}</p>
     </section>
 
     <section class="project__materials">
-      <h2 class="subhead">Research Materials</h2>
+      <h2 class="subhead">${esc(ui("researchMaterials"))}</h2>
       <div class="materials">${page.materials.map(C.MaterialCard).join("")}</div>
     </section>`;
 
@@ -60,6 +61,6 @@
   $("#footer").innerHTML = `
     <div class="footer__base">
       <p>© ${new Date().getFullYear()} ${esc(p.name)}</p>
-      <a class="footer__tag" href="${HOME}#research">Back to Research</a>
+      <a class="footer__tag" href="${HOME}#research">${esc(ui("backToResearch"))}</a>
     </div>`;
 })();
