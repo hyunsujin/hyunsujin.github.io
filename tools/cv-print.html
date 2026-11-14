@@ -1,0 +1,49 @@
+<!doctype html>
+<!-- Print source for assets/cv/cv.pdf — built from the `cv` data in js/content.js. See README ("CV PDF"). --><html lang="en"><head><meta charset="utf-8"><title>Sujin Hyun — CV</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+@page { size: A4; margin: 14mm 16mm 14mm; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Inter, sans-serif; font-size: 9.2pt; line-height: 1.45; color: #141b26; -webkit-print-color-adjust: exact; }
+h1 { font-family: Newsreader, serif; font-weight: 400; font-size: 28pt; line-height: 1; margin: 0; color: #111b2e; letter-spacing: -0.01em; }
+.role { margin-top: 6pt; color: #3e4652; }
+.contact { margin-top: 4pt; color: #747c87; font-size: 8.8pt; }
+.contact span + span::before { content: "·"; margin: 0 6pt; }
+.head { display: flex; justify-content: space-between; align-items: flex-end; gap: 12mm; padding-bottom: 12pt; border-bottom: 1px solid rgba(17,27,46,.2); margin-bottom: 4pt; }
+section { display: grid; grid-template-columns: 34mm 1fr; gap: 0 6mm; padding: 8pt 0; border-bottom: 1px solid rgba(17,27,46,.09); break-inside: avoid; }
+h2 { font-family: "IBM Plex Mono", monospace; font-weight: 400; font-size: 7.4pt; letter-spacing: .12em; text-transform: uppercase; color: #3b7068; margin: 2pt 0 0; }
+.label { font-family: "IBM Plex Mono", monospace; font-size: 7pt; letter-spacing: .1em; text-transform: uppercase; color: #747c87; margin: 2pt 0 4pt; }
+.group + .group { margin-top: 8pt; }
+.e { display: grid; grid-template-columns: 1fr auto; gap: 0 10pt; break-inside: avoid; }
+.e + .e { margin-top: 4.5pt; }
+.e h3 { font-family: Newsreader, serif; font-weight: 500; font-size: 10.5pt; line-height: 1.28; margin: 0; color: #111b2e; }
+.e .p { color: #747c87; font-size: 8.6pt; white-space: nowrap; text-align: right; }
+.e .s, .e .m { grid-column: 1; color: #3e4652; }
+.e .m { color: #747c87; font-size: 8.8pt; }
+.e ul { grid-column: 1; margin: 2pt 0 0; padding-left: 12pt; color: #3e4652; }
+.tags { color: #3e4652; margin: 1pt 0 0; }
+.photo { width: 27mm; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 15%; border-radius: 2pt; flex: none; }
+.foot { margin-top: 10pt; font-size: 8pt; color: #747c87; }
+</style></head><body><div id="cv"></div>
+<script src="../js/content.js"></script>
+<script>
+const S = window.SITE, p = S.profile;
+const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const entry = (e) => `<div class="e"><h3>${esc(e.heading)}</h3><div class="p">${esc(e.period || "")}</div>
+  ${e.sub ? `<div class="s">${esc(e.sub)}</div>` : ""}${e.meta ? `<div class="m">${esc(e.meta)}</div>` : ""}
+  ${e.items ? `<ul>${e.items.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>` : ""}</div>`;
+const sections = S.cv.map((sec) => {
+  let body;
+  if (sec.source === "performances") {
+    body = S.performances.flatMap((y) => y.items.filter((it) => it.selected)
+      .map((it) => entry({ period: y.year, heading: it.title, sub: it.venue, meta: it.detail }))).join("");
+  } else if (sec.tags) body = `<p class="tags">${sec.tags.map(esc).join(" · ")}</p>`;
+  else if (sec.groups) body = sec.groups.map((g) => `<div class="group"><p class="label">${esc(g.label)}</p>${g.entries.map(entry).join("")}</div>`).join("");
+  else body = sec.entries.map(entry).join("");
+  return `<section><h2>${esc(sec.title)}</h2><div>${body}</div></section>`;
+}).join("");
+const contact = p.contact.map((c) => `<span>${esc(c.label)}</span>`).join("");
+document.getElementById("cv").innerHTML = `<div class="head"><div><h1>${esc(p.name)}</h1>
+  <p class="role">${esc(p.title)}, ${esc(p.affiliation)}<br>${esc(p.background)}, ${esc(p.school)}</p>
+  <p class="contact">${contact}<span>hyunsujin.github.io</span></p></div><img class="photo" src="../${esc(S.hero.image)}" alt=""></div>${sections}`;
+</script></body></html>

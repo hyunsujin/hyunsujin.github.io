@@ -483,6 +483,12 @@ window.SITE = {
       id: "professional-experience",
       title: "Professional Experience",
       entries: [
+        {
+          heading: "Euphonium Instructor",
+          sub: "Baemoon High School Wind Orchestra, Seoul",
+          period: "2023 – Present",
+          items: ["Monthly euphonium section lessons for student members"],
+        },
         { heading: "Frontend Developer", sub: "Gonggan Insoft", period: "2026" },
         { heading: "Performance Planning & Operations", sub: "Teamplay Arts Planning", period: "2024 – 2025" },
       ],

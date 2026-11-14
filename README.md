@@ -45,6 +45,7 @@ Music × Technology × Human Experience — 개인 연구 포트폴리오 (GitHu
 기타 파일
 - 논문 PDF → `assets/papers/`
 - CV PDF → `assets/cv/`
+  - `assets/cv/cv.pdf`는 `tools/cv-print.html`(`js/content.js`의 `cv` 데이터)로 만듭니다. CV 내용을 바꾸면 다시 만들어야 합니다: 저장소 폴더에서 `python3 -m http.server 8765` 실행 후 Chrome headless로 `--print-to-pdf=assets/cv/cv.pdf --no-pdf-header-footer http://localhost:8765/tools/cv-print.html`
 
 ## 구조
 
