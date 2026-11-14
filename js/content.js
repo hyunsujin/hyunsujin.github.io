@@ -326,7 +326,7 @@ window.SITE = {
   // Mixing layouts is what makes the grid editorial — keep them varied.
   archive: {
     title: "Archive",
-    subtitle: "Posters, performances, studio portraits, and projects.",
+    subtitle: "Posters, performances, recordings, studio portraits, and projects.",
     chapters: [
       {
         id: "posters",
@@ -361,8 +361,22 @@ window.SITE = {
         ],
       },
       {
-        id: "studio",
+        id: "recordings",
         numeral: "III",
+        title: "Recordings",
+        note: "Performance videos.",
+        // view: "videos" = YouTube videos; `youtube` is the id after "watch?v=" in the link.
+        // The thumbnail shows first; the video loads only when it is clicked.
+        view: "videos",
+        items: [
+          { youtube: "8-bzV0mYoyI", title: "Him", composer: "J.P. Vanbeselaere", kind: "Euphonium" },
+          { youtube: "CbQ9zI5kV9U", title: "Euphonium Concerto", composer: "V. Cosma", kind: "Euphonium" },
+          { youtube: "kU4c0gm4eK0", title: "Esmeralda", kind: "Quartet · Traum Quartet" },
+        ],
+      },
+      {
+        id: "studio",
+        numeral: "IV",
         title: "Studio",
         note: "The performer, in still frames.",
         items: [
@@ -372,7 +386,7 @@ window.SITE = {
       },
       {
         id: "projects",
-        numeral: "IV",
+        numeral: "V",
         title: "Projects",
         note: "Collaborative and coursework projects.",
         // view: "notes" = text entries (no images): year, kind, title, context, role (optional), a short description.
@@ -626,6 +640,8 @@ window.SITE = {
     shelfViewFull: "View full image ↗",
     shelfPoster: "Poster",
     shelfOf: "of",
+    playVideo: "Play video",
+    watchOnYoutube: "YouTube ↗",
     language: "Language",
   },
 };

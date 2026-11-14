@@ -195,7 +195,7 @@ window.SITE_KO = {
 
   archive: {
     title: "아카이브",
-    subtitle: "포스터, 공연, 스튜디오 사진, 그리고 프로젝트.",
+    subtitle: "포스터, 공연, 연주 영상, 스튜디오 사진, 그리고 프로젝트.",
     chapters: [
       {
         title: "포스터",
@@ -219,6 +219,15 @@ window.SITE_KO = {
           { kind: "앙상블", title: "유포니움 & 튜바 4중주" },
           { kind: "공연" },
           { kind: "졸업연주회", title: "한국예술종합학교 졸업연주회", place: "한국예술종합학교 이강숙홀" },
+        ],
+      },
+      {
+        title: "연주 영상",
+        note: "연주 영상.",
+        items: [
+          { kind: "유포니움" },
+          { kind: "유포니움" },
+          { kind: "4중주 · Traum Quartet" },
         ],
       },
       {
@@ -416,6 +425,8 @@ window.SITE_KO = {
     shelfViewFull: "원본 이미지 보기 ↗",
     shelfPoster: "포스터",
     shelfOf: "/",
+    playVideo: "영상 재생",
+    watchOnYoutube: "유튜브 ↗",
     language: "언어",
   },
 };

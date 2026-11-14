@@ -181,6 +181,19 @@
     });
   }
 
+  /* ---------- Videos: swap the thumbnail for the player on click ---------- */
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-youtube]");
+    if (!btn) return;
+    const frame = document.createElement("iframe");
+    frame.className = "video__player";
+    frame.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(btn.dataset.youtube)}?autoplay=1&rel=0`;
+    frame.title = btn.getAttribute("aria-label");
+    frame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+    frame.allowFullscreen = true;
+    btn.replaceWith(frame);
+  });
+
   /* ---------- Poster shelf (Archive chapters with view: "shelf") ---------- */
   if (window.Shelf)
     ar.chapters

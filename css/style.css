@@ -1057,6 +1057,74 @@ a.btn:hover svg { transform: translate(2px, -2px); }
   color: var(--accent-ink);
 }
 
+/* videos (view: "videos") — three across, thumbnail first */
+.videos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5rem clamp(1rem, 2vw, 1.75rem);
+}
+.video__frame,
+.video__player {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 3px;
+  background: var(--navy);
+}
+.video__frame {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+}
+.video__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* crops the black bars of YouTube's 4:3 thumbnails */
+  transition: transform 1.2s var(--ease), opacity 0.4s var(--ease);
+}
+.video__frame:hover img { transform: scale(1.03); opacity: 0.85; }
+.video__play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  margin: -1.625rem 0 0 -1.625rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--navy);
+  transition: transform 0.4s var(--ease);
+}
+.video__frame:hover .video__play { transform: scale(1.08); }
+.video__play svg { width: 1.2rem; height: 1.2rem; margin-left: 0.15rem; fill: currentColor; }
+.video__caption { display: grid; gap: 0.2rem; margin-top: 0.85rem; }
+.video__kind {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+}
+.video__title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.25;
+  color: var(--navy);
+}
+.video__composer { font-family: var(--serif); font-style: italic; color: var(--muted); }
+.video__link {
+  justify-self: start;
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--accent-ink);
+  text-underline-offset: 3px;
+}
+
 /* performance record — set like a concert programme */
 .record { margin-top: clamp(3.5rem, 7vw, 6rem); }
 .record__years { display: grid; }
@@ -1495,6 +1563,7 @@ a.footer__tag:hover { color: var(--navy); }
   .archive__grid > .archive__item--small-r { grid-column: span 1; }
   .archive__item--strip .archive__media { aspect-ratio: 16 / 9; }
   .record__year, .note { grid-template-columns: 1fr; gap: 1rem; }
+  .videos { grid-template-columns: 1fr; gap: 2rem; }
   .record__items { grid-template-columns: 1fr; gap: 1.2rem; }
   .cv-section { grid-template-columns: 1fr; gap: 1rem; }
 }

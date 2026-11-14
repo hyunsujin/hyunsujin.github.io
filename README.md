@@ -36,8 +36,9 @@ Music × Technology × Human Experience — 개인 연구 포트폴리오 (GitHu
     - 챕터에 `view: "shelf"`가 있으면 곡선 포스터 선반으로 표시 (드래그·화살표·연도 눈금자, 가운데 포스터 클릭 시 크게 보기). 이 줄을 지우면 3장씩 격자로 돌아감
     - `spine`: 선반에서 보이는 포스터 옆면 색 (예: `"#201e20"`)
   - II. Performance: `ensemble-01.jpg`, `performance-01.jpg` (Concert), `performance-02.jpg` (Graduation Recital)
-  - III. Studio: `studio-01.jpg`, `studio-02.jpg`
-  - IV. Projects: 사진 없는 글 항목 (`view: "notes"`) — `year`, `kind`, `title`, `context`, `role`(내 역할), `text`
+  - III. Recordings: 유튜브 영상 (`view: "videos"`) — `youtube`(링크의 watch?v= 뒤 값), `title`, `composer`, `kind`
+  - IV. Studio: `studio-01.jpg`, `studio-02.jpg`
+  - V. Projects: 사진 없는 글 항목 (`view: "notes"`) — `year`, `kind`, `title`, `context`, `role`(내 역할), `text`
   - 제목·연도·장소(hover에 표시)와 이미지 크기(`layout`)는 `js/content.js`의 `archive`에서 수정. 사진 추가는 항목을 복사해 추가하면 됩니다. `position`으로 잘리는 위치를 정할 수 있습니다 (예: `"50% 100%"` = 아래쪽 유지).
 - 경로를 바꾸려면 `js/content.js`의 `image` / `photo` 값을 수정
 - 사이드바 사진의 얼굴 위치 조정: `css/style.css`의 `.avatar img` (`scale`, `transform-origin`)

@@ -321,6 +321,25 @@
     </li>`;
   }
 
+  // A YouTube video (chapters with view: "videos"). Only the thumbnail loads
+  // at first; clicking swaps in the player (js/main.js).
+  function ArchiveVideo(item) {
+    const id = esc(item.youtube);
+    const label = [item.title, item.composer].filter(Boolean).join(" — ");
+    return `<li class="video">
+      <button class="video__frame" type="button" data-youtube="${id}" aria-label="${esc(ui("playVideo"))}: ${esc(label)}">
+        <img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="" loading="lazy">
+        <span class="video__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+      </button>
+      <div class="video__caption">
+        <p class="video__kind">${esc(item.kind || "")}</p>
+        <h4 class="video__title">${esc(item.title)}</h4>
+        ${item.composer ? `<p class="video__composer">${esc(item.composer)}</p>` : ""}
+        <a class="video__link" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener">${esc(ui("watchOnYoutube"))}</a>
+      </div>
+    </li>`;
+  }
+
   // A chapter of the archive: numeral, title, a one-line note, then the grid.
   function ArchiveChapter(chapter) {
     return `<section class="archive__chapter" id="archive-${esc(chapter.id)}">
@@ -334,6 +353,8 @@
           ? `<div class="shelf" data-shelf="${esc(chapter.id)}"></div>`
           : chapter.view === "notes"
             ? `<ol class="notes">${chapter.items.map(ArchiveNote).join("")}</ol>`
+            : chapter.view === "videos"
+            ? `<ul class="videos">${chapter.items.map(ArchiveVideo).join("")}</ul>`
             : `<div class="archive__grid">${chapter.items.map(ArchiveItem).join("")}</div>`
       }
     </section>`;
@@ -480,6 +501,7 @@
     PatentItem,
     ArchiveItem,
     ArchiveNote,
+    ArchiveVideo,
     ArchiveChapter,
     PerformanceRecord,
     CVSection,
