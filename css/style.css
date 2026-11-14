@@ -1047,6 +1047,15 @@ a.btn:hover svg { transform: translate(2px, -2px); }
 }
 .note__context { font-family: var(--serif); font-style: italic; font-size: 0.98rem; color: var(--teal); }
 .note__text { margin-top: 0.35rem; color: var(--ink-2); line-height: 1.65; }
+.note__role { margin-top: 0.35rem; color: var(--ink); line-height: 1.6; }
+.note__role span {
+  margin-right: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+}
 
 /* performance record — set like a concert programme */
 .record { margin-top: clamp(3.5rem, 7vw, 6rem); }

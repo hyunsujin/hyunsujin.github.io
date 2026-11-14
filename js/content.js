@@ -375,7 +375,7 @@ window.SITE = {
         numeral: "IV",
         title: "Projects",
         note: "Collaborative and coursework projects.",
-        // view: "notes" = text entries (no images): year, kind, title, context, a short description.
+        // view: "notes" = text entries (no images): year, kind, title, context, role (optional), a short description.
         view: "notes",
         items: [
           {
@@ -383,6 +383,7 @@ window.SITE = {
             kind: "Audio-Immersive Sound Piece",
             title: "Nightmare (악몽)",
             context: "Final project, Musicking (liberal arts course) · Team of six, planned and produced together",
+            role: "Proposed the concept of a nightmare in an empty school; recorded euphonium breath sounds for the soundtrack.",
             text: [
               "An audio-immersive piece about an empty school at night.",
               "Listeners in a lecture room put their heads down, close their eyes and hear one shared soundtrack through earphones or the room speakers: rain, a ticking clock, a door in the wind, creaking desks and radio noise, over a cheolhyeongeum (Korean steel-string zither) melody.",

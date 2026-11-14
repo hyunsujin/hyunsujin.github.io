@@ -300,6 +300,7 @@
         ${item.kind ? `<p class="note__kind">${esc(item.kind)}</p>` : ""}
         <h4 class="note__title">${esc(item.title)}</h4>
         ${item.context ? `<p class="note__context">${esc(item.context)}</p>` : ""}
+        ${item.role ? `<p class="note__role"><span>My role</span>${esc(item.role)}</p>` : ""}
         ${item.text ? `<p class="note__text">${[].concat(item.text).map(esc).join(" ")}</p>` : ""}
       </div>
     </li>`;
