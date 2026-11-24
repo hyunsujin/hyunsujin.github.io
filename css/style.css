@@ -1893,5 +1893,12 @@ a.footer__tag:hover { color: var(--navy); }
 /* mobile top bar: switch sits at the top right, next to the name */
 .lang--compact { position: absolute; top: calc(0.9rem + env(safe-area-inset-top, 0px)); right: var(--gutter); }
 
+/* index.html holds saved English text; hidden until js/ redraws it in Korean */
+.is-redrawing .topbar, .is-redrawing .sidebar, .is-redrawing .main {
+  visibility: hidden;
+  animation: redraw-failsafe 0s 2s forwards; /* shown anyway if a script ever fails */
+}
+@keyframes redraw-failsafe { to { visibility: visible; } }
+
 /* Korean: break lines between words, not inside them */
 html:lang(ko) body { word-break: keep-all; overflow-wrap: break-word; font-synthesis-style: none; }

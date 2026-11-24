@@ -214,4 +214,5 @@
 
   /* ---------- Hero staff → waveform ---------- */
   window.Staff && window.Staff.init(document.getElementById("staff"), S.hero.trajectory);
+  document.documentElement.classList.remove("is-redrawing");
 })();

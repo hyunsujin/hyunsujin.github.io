@@ -14,29 +14,952 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+KR:wght@400;500&family=Noto+Sans+KR:wght@400;500&display=swap">
+  <!-- Korean visitors: hide the saved (English) text until js/ redraws the page -->
+  <script>try{var l=new URLSearchParams(location.search).get("lang")||localStorage.getItem("site-lang");if(l==="ko")document.documentElement.className+=" is-redrawing"}catch(e){}</script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
   <!-- Mobile top navigation (replaces the sidebar on small screens) -->
-  <header class="topbar" id="topbar"></header>
+  <header class="topbar" id="topbar"><!--pre--><a class="topbar__name" href="#top">Sujin Hyun</a>
+    <div class="lang lang--compact" role="group" aria-label="Language">
+      <button type="button" class="lang__opt" data-lang="en" lang="en" aria-pressed="true">EN</button><span class="lang__sep" aria-hidden="true">/</span><button type="button" class="lang__opt" data-lang="ko" lang="ko" aria-pressed="false">한국어</button>
+    </div>
+    <nav class="nav nav--compact" aria-label="Main">
+      <ol class="nav__list">
+        <li><a class="nav__link" href="#top" data-nav="top">
+              <span class="nav__num">01</span>
+              <span class="nav__label">About</span>
+            </a></li><li><a class="nav__link" href="#research" data-nav="research">
+              <span class="nav__num">02</span>
+              <span class="nav__label">Research</span>
+            </a></li><li><a class="nav__link" href="#venture" data-nav="venture">
+              <span class="nav__num">03</span>
+              <span class="nav__label">Venture</span>
+            </a></li><li><a class="nav__link" href="#publications" data-nav="publications">
+              <span class="nav__num">04</span>
+              <span class="nav__label">Publications</span>
+            </a></li><li><a class="nav__link" href="#patents" data-nav="patents">
+              <span class="nav__num">05</span>
+              <span class="nav__label">Patents</span>
+            </a></li><li><a class="nav__link" href="#archive" data-nav="archive">
+              <span class="nav__num">06</span>
+              <span class="nav__label">Archive</span>
+            </a></li><li><a class="nav__link" href="#cv" data-nav="cv">
+              <span class="nav__num">07</span>
+              <span class="nav__label">CV</span>
+            </a></li>
+      </ol>
+    </nav><!--/pre--></header>
 
   <!-- Fixed sidebar (rendered from js/content.js) -->
-  <aside class="sidebar" id="sidebar"></aside>
+  <aside class="sidebar" id="sidebar"><!--pre--><div class="sidebar__inner">
+        <a class="sidebar__identity" href="#top">
+          <div class="avatar">
+      <span class="avatar__initials" aria-hidden="true">SH</span>
+      <img src="assets/images/portrait-main.jpg" alt="Sujin Hyun" onerror="this.remove()">
+    </div>
+          <span class="sidebar__name">Sujin Hyun</span>
+        </a>
+        <div class="sidebar__role">
+          <p class="sidebar__title">Research Intern</p>
+          <p class="sidebar__aff">IBD Lab, KAIST</p>
+          <p class="sidebar__background">Euphonium Performance</p>
+        </div>
+        <nav class="nav " aria-label="Main">
+      <ol class="nav__list">
+        <li><a class="nav__link" href="#top" data-nav="top">
+              <span class="nav__num">01</span>
+              <span class="nav__label">About</span>
+            </a></li><li><a class="nav__link" href="#research" data-nav="research">
+              <span class="nav__num">02</span>
+              <span class="nav__label">Research</span>
+            </a></li><li><a class="nav__link" href="#venture" data-nav="venture">
+              <span class="nav__num">03</span>
+              <span class="nav__label">Venture</span>
+            </a></li><li><a class="nav__link" href="#publications" data-nav="publications">
+              <span class="nav__num">04</span>
+              <span class="nav__label">Publications</span>
+            </a></li><li><a class="nav__link" href="#patents" data-nav="patents">
+              <span class="nav__num">05</span>
+              <span class="nav__label">Patents</span>
+            </a></li><li><a class="nav__link" href="#archive" data-nav="archive">
+              <span class="nav__num">06</span>
+              <span class="nav__label">Archive</span>
+            </a></li><li><a class="nav__link" href="#cv" data-nav="cv">
+              <span class="nav__num">07</span>
+              <span class="nav__label">CV</span>
+            </a></li>
+      </ol>
+    </nav>
+        <div class="lang " role="group" aria-label="Language">
+      <button type="button" class="lang__opt" data-lang="en" lang="en" aria-pressed="true">EN</button><span class="lang__sep" aria-hidden="true">/</span><button type="button" class="lang__opt" data-lang="ko" lang="ko" aria-pressed="false">한국어</button>
+    </div>
+        <ul class="contact ">
+      <li><a class="contact__item" href="mailto:gustnwls23@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3.5 6.5 8.5 6.5 8.5-6.5"></path></svg><span>gustnwls23@gmail.com</span></a></li><li><a class="contact__item" href="https://www.instagram.com/hyunsujin__/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5v.01"></path></svg><span>@hyunsujin__</span></a></li>
+    </ul>
+      </div><!--/pre--></aside>
 
   <main class="main" id="main">
-    <section class="hero" id="top"></section>
-    <section class="section" id="research"></section>
-    <section class="section" id="venture"></section>
-    <section class="section" id="publications"></section>
-    <section class="section" id="patents"></section>
-    <section class="section section--wide" id="archive"></section>
-    <section class="section" id="cv"></section>
-    <footer class="footer" id="footer"></footer>
+    <section class="hero" id="top"><!--pre--><div class="hero__grid">
+      <figure class="hero__figure">
+        <div class="media hero__media">
+      <div class="media__ph" aria-hidden="true">
+        <svg viewBox="0 0 400 400" preserveAspectRatio="xMaxYMax slice">
+          <circle cx="400" cy="400" r="70"></circle><circle cx="400" cy="400" r="130"></circle>
+          <circle cx="400" cy="400" r="190"></circle><circle cx="400" cy="400" r="250"></circle>
+          <circle cx="400" cy="400" r="310"></circle>
+        </svg>
+        
+      </div>
+      <img src="assets/images/portrait-main.jpg" alt="Sujin Hyun" loading="eager" onerror="this.remove()">
+    </div>
+        <figcaption class="hero__statement">From Performance to Research</figcaption>
+      </figure>
+      <div class="hero__text">
+        <h1 class="hero__name">Sujin Hyun</h1>
+        <p class="hero__lead">My background as a performer shapes the questions I ask about technology, interaction, and human experience.</p>
+        <div class="hero__facts">
+          <div class="hero__block">
+            <p class="hero__strong">Euphonium Performance</p>
+            <p class="hero__soft">Korea National University of Arts</p>
+          </div>
+          <div class="hero__block">
+            <p class="hero__strong">Research Intern</p>
+            <p class="hero__soft">IBD Lab, KAIST</p>
+          </div>
+        </div>
+        <p class="hero__bio">With a background in music performance, I am interested in exploring how technology can create better experiences for performers, audiences, and users.</p>
+        <div class="interests">
+          <h2 class="subhead">Research Interests</h2>
+          <ul class="tags interests__tags"><li class="tag tag--default">Music Technology</li><li class="tag tag--default">HCI</li><li class="tag tag--default">UX</li><li class="tag tag--default">AI &amp; Music</li><li class="tag tag--default">Human-Centered Design</li><li class="tag tag--default">Lifelog &amp; Wearable Data</li><li class="tag tag--default">Interactive Systems</li></ul>
+        </div>
+        <p class="hero__tagline">Music <span class="x">×</span> Technology <span class="x">×</span> Human Experience</p>
+      </div>
+    </div>
+    <div class="hero__wave" aria-label="A musical staff whose lines gradually become sound waves: Music Performance, Music &amp; Technology, HCI / UX, AI / Data, Human-Centered Research">
+      <svg class="staff" id="staff" role="presentation"></svg>
+    </div><!--/pre--></section>
+    <section class="section" id="research"><!--pre--><header class="section-head">
+      <p class="kicker"><span class="kicker__num">02</span>Research</p>
+      <h2 class="section-title">Research Experience</h2>
+      <p class="section-intro">Research projects I have taken part in, grouped by where they took place.</p>
+    </header>
+    <ol class="timeline"><li class="timeline__group">
+      <div class="timeline__group-node" aria-hidden="true"></div>
+      <div class="timeline__group-head">
+        <h3 class="timeline__group-title">MATINE, KAIST</h3>
+        <p class="timeline__group-meta">Prof. Jinwoo Lee · Ongoing · 2026</p>
+      </div>
+    </li>
+    <li class="timeline__item" id="project-breath-sound">
+      <div class="timeline__node" aria-hidden="true"><span></span></div>
+      <article class="rcard">
+        <div class="rcard__body">
+          <header class="rcard__head">
+            <p class="rcard__eyebrow"><span class="rcard__index">01</span></p>
+            <h3 class="rcard__title">Breathing and Instrument Sound: A Sensor-Based Study</h3>
+            <p class="rcard__context">Sensors loaned by Yamaha</p>
+          </header>
+          <p class="rcard__summary">An ongoing research project investigating how a performer's breathing affects the sound of the instrument, using sensors loaned free of charge by Yamaha.</p>
+          
+          
+          
+        </div>
+      </article>
+    </li><li class="timeline__group">
+      <div class="timeline__group-node" aria-hidden="true"></div>
+      <div class="timeline__group-head">
+        <h3 class="timeline__group-title">IBD Lab, KAIST</h3>
+        <p class="timeline__group-meta">Prof. Jihyun Lee · Ongoing · 2026</p>
+      </div>
+    </li>
+    <li class="timeline__item" id="project-genai-design-evaluation">
+      <div class="timeline__node" aria-hidden="true"><span></span></div>
+      <article class="rcard">
+        <div class="rcard__body">
+          <header class="rcard__head">
+            <p class="rcard__eyebrow"><span class="rcard__index">02</span></p>
+            <h3 class="rcard__title">Generative AI-Based Design Interpretation &amp; Evaluation</h3>
+            
+          </header>
+          <p class="rcard__summary">Research on developing technologies for interpreting and evaluating design using Generative AI.</p>
+          <p class="rcard__role"><span class="rcard__label">My Role</span>Data Collection · Web Service Investigation · Data Categorization · Research Support for Design Evaluation Criteria</p>
+          
+          
+        </div>
+      </article>
+    </li><li class="timeline__item" id="project-smart-mirror">
+      <div class="timeline__node" aria-hidden="true"><span></span></div>
+      <article class="rcard">
+        <div class="rcard__body">
+          <header class="rcard__head">
+            <p class="rcard__eyebrow"><span class="rcard__index">03</span></p>
+            <h3 class="rcard__title">Smart Mirror Project</h3>
+            
+          </header>
+          <p class="rcard__summary">Participated in a Smart Mirror project exploring interactive experiences and human-centered technology.</p>
+          
+          
+          
+        </div>
+      </article>
+    </li><li class="timeline__group">
+      <div class="timeline__group-node" aria-hidden="true"></div>
+      <div class="timeline__group-head">
+        <h3 class="timeline__group-title">Other Research Experience</h3>
+        <p class="timeline__group-meta">2026</p>
+      </div>
+    </li>
+    <li class="timeline__item" id="project-stress-prediction">
+      <div class="timeline__node" aria-hidden="true"><span></span></div>
+      <article class="rcard">
+        <div class="rcard__body">
+          <header class="rcard__head">
+            <p class="rcard__eyebrow"><span class="rcard__index">04</span></p>
+            <h3 class="rcard__title">Stress Prediction Using Personalized Pre-Sleep Lifelog Features</h3>
+            <p class="rcard__context">DACON × ETRI Lifelog Dataset / Paper Competition</p>
+          </header>
+          <p class="rcard__summary">Research on personalized stress prediction using pre-sleep lifelog features, user baseline-based Z-scores, and past sleep/survey history.</p>
+          
+          
+          <div class="rcard__links"><a class="btn" href="stress-prediction.html">Poster &amp; Paper<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a><a class="btn" href="#publications">Publication<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a><a class="btn" href="assets/papers/ictc2026-stress-prediction-paper.pdf" target="_blank" rel="noopener">View Paper<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a></div>
+        </div>
+      </article>
+    </li><li class="timeline__group">
+      <div class="timeline__group-node" aria-hidden="true"></div>
+      <div class="timeline__group-head">
+        <h3 class="timeline__group-title">ETRI</h3>
+        <p class="timeline__group-meta">Research Assistant · July – August 2026</p>
+      </div>
+    </li>
+    <li class="timeline__item" id="project-autonomous-driving">
+      <div class="timeline__node" aria-hidden="true"><span></span></div>
+      <article class="rcard">
+        <div class="rcard__body">
+          <header class="rcard__head">
+            <p class="rcard__eyebrow"><span class="rcard__index">05</span></p>
+            <h3 class="rcard__title">Multimodal Interface Evaluation</h3>
+            <p class="rcard__context">Conditional autonomous driving</p>
+          </header>
+          <p class="rcard__summary">Supported user experiments on multimodal interface effectiveness in conditional autonomous driving environments.</p>
+          
+          
+          
+        </div>
+      </article>
+    </li><li class="timeline__group">
+      <div class="timeline__group-node" aria-hidden="true"></div>
+      <div class="timeline__group-head">
+        <h3 class="timeline__group-title">Hackathon</h3>
+        <p class="timeline__group-meta">CG&amp;I × KAIST ARRC 2026 XR·AI Winter School · November 2026</p>
+      </div>
+    </li>
+    <li class="timeline__item" id="project-madimadi">
+      <div class="timeline__node" aria-hidden="true"><span></span></div>
+      <article class="rcard">
+        <div class="rcard__body">
+          <header class="rcard__head">
+            <p class="rcard__eyebrow"><span class="rcard__index">06</span></p>
+            <h3 class="rcard__title">Madimadi (마디마디): Smart-Glasses Rehearsal Assistant for Ensemble Players</h3>
+            <p class="rcard__context">Team of two · Rokid Glasses</p>
+          </header>
+          <p class="rcard__summary">In rehearsal, conductors give instructions without warning, and players can't write them down because their hands are on their instruments. Madimadi listens continuously: one tap on the glasses after an instruction saves the last 20 seconds. The speech becomes bar-by-bar cards (bar, part, issue type, short Korean keywords). When the conductor says "from bar 34," that bar's card appears on the glasses. The remaining cards can be handed to substitute players as a list in bar order.</p>
+          <p class="rcard__role"><span class="rcard__label">My Role</span>Concept Proposal · Prototype Implementation · Test Recording Production · User Flow &amp; Glasses UI Design · Demo &amp; Presentation</p>
+          
+          
+        </div>
+      </article>
+    </li></ol><!--/pre--></section>
+    <section class="section" id="venture"><!--pre--><header class="section-head">
+      <p class="kicker"><span class="kicker__num">03</span>Venture</p>
+      <h2 class="section-title">Startup</h2>
+      <p class="section-intro">A product I am building with my team, from idea to prototype.</p>
+    </header>
+    <ol class="timeline"><li class="timeline__group">
+      <div class="timeline__group-node" aria-hidden="true"></div>
+      <div class="timeline__group-head">
+        <h3 class="timeline__group-title">KAIST App Startup Program, 6th Cohort</h3>
+        <p class="timeline__group-meta">Team K² · Team Leader · October 2026 – Present</p>
+      </div>
+    </li>
+    <li class="timeline__item" id="project-bystage">
+      <div class="timeline__node" aria-hidden="true"><span></span></div>
+      <article class="rcard">
+        <div class="rcard__body">
+          <header class="rcard__head">
+            <p class="rcard__eyebrow"><span class="rcard__index">01</span></p>
+            <h3 class="rcard__title">ByStage (바이스테이지)</h3>
+            <p class="rcard__context">Performance booking &amp; payment platform · Passed Stage 2, working toward Stage 3</p>
+          </header>
+          <p class="rcard__summary">ByStage is a performance platform that connects organizers, performers and audiences around a single performance. At its core is the booking transaction: organizers find and book guest performers, and every step is recorded, from confirming terms to paying the performance fee. Through these bookings, performers build a verified career record, and finished performances open to audiences.</p>
+          <p class="rcard__role"><span class="rcard__label">My Role</span>Overall Concept &amp; Direction · Prototype Design · User Interviews · Customer Validation · Spec Design</p>
+          
+          
+        </div>
+      </article>
+    </li></ol><!--/pre--></section>
+    <section class="section" id="publications"><!--pre--><header class="section-head">
+      <p class="kicker"><span class="kicker__num">04</span>Publications</p>
+      <h2 class="section-title">Publications</h2>
+      
+    </header>
+    <div class="pubs"><article class="pub">
+      <div class="pub__year">2026</div>
+      <div class="pub__body">
+        <h3 class="pub__title">An Integrated Framework for Multidimensional Evaluation of Service Design</h3>
+        <p class="pub__authors">Min, S., Kim, G., Hong, Y., Youn, Y., Yum, J., Jang, E., Hyun, S., &amp; Lee, J.</p>
+        
+        <p class="pub__venue">Archives of Design Research</p>
+        <ul class="pub__status"><li>Accepted with Revision</li><li>SCOPUS</li></ul>
+        
+        
+        <div class="pub__links"><span class="btn is-pending" aria-disabled="true" title="Link will be added soon">
+        View Paper<span class="btn__soon">soon</span></span></div>
+      </div>
+    </article><article class="pub">
+      <div class="pub__year">2026</div>
+      <div class="pub__body">
+        <h3 class="pub__title">Stress Prediction Using Personalized Pre-Sleep Lifelog Features</h3>
+        <p class="pub__authors">Kyeongran Moon<sup>1</sup>, Sujin Hyun<sup>2</sup></p>
+        <p class="pub__affs"><span><sup>1</sup>Hongik University</span><span><sup>2</sup>KAIST, Culture Technology, IBD Lab</span></p>
+        
+        <ul class="pub__status"><li>Accepted · ICTC 2026</li><li>Conference Presentation · Jeju, Korea</li></ul>
+        <p class="pub__desc">Research on personalized stress prediction using pre-sleep lifelog features, user baseline-based Z-scores, and past sleep/survey history.</p>
+        <p class="pub__context">DACON × ETRI Lifelog Dataset / Paper Competition</p>
+        <div class="pub__links"><a class="btn" href="assets/papers/ictc2026-stress-prediction-paper.pdf" target="_blank" rel="noopener">View Paper<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a><a class="btn" href="assets/papers/ictc2026-stress-prediction-poster.pdf" target="_blank" rel="noopener">View Poster<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a><a class="btn" href="stress-prediction.html">Project Page<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a></div>
+      </div>
+    </article></div><!--/pre--></section>
+    <section class="section" id="patents"><!--pre--><header class="section-head">
+      <p class="kicker"><span class="kicker__num">05</span>Patents</p>
+      <h2 class="section-title">Patent Applications</h2>
+      
+    </header>
+    <div class="pubs"><article class="pub pub--patent">
+      <div class="pub__year">2026</div>
+      <div class="pub__body">
+        <p class="pub__badge">Patent Application</p>
+        <h3 class="pub__title">AI-based Integrated Monitoring Method and Device for Companion Animals Using Stress Analysis and Event Records</h3>
+        <ul class="pub__status">
+          <li>Application No. 10-2026-0042437</li>
+          <li>Filed: March 10, 2026</li>
+        </ul>
+      </div>
+    </article><article class="pub pub--patent">
+      <div class="pub__year">2026</div>
+      <div class="pub__body">
+        <p class="pub__badge">Patent Application</p>
+        <h3 class="pub__title">Risk Assessment Method and Device for AI-Based Companion Animal Care Services</h3>
+        <ul class="pub__status">
+          <li>Application No. 10-2026-0042438</li>
+          <li>Filed: March 10, 2026</li>
+        </ul>
+      </div>
+    </article></div><!--/pre--></section>
+    <section class="section section--wide" id="archive"><!--pre--><header class="section-head">
+      <p class="kicker"><span class="kicker__num">06</span>Archive</p>
+      <h2 class="section-title">Archive</h2>
+      <p class="section-intro">Posters, performances, recordings, studio portraits, and projects.</p>
+    </header>
+    <section class="archive__chapter" id="archive-posters">
+      <header class="archive__chapter-head">
+        <span class="archive__numeral">I</span>
+        <h3 class="archive__chapter-title">Posters</h3>
+        <p class="archive__note">Recital and concert posters.</p>
+      </header>
+      <div class="shelf" data-shelf="posters"><ol class="visually-hidden"><li>Korea Low Brass Ensemble, 7th Regular Concert, 2026, Seoul Arts Center IBK Chamber Hall</li><li>Korea Symphonic Brass — City of Gold, 2024, Gyeongju Arts Center Hwarang Hall</li><li>Korea Low Brass Ensemble, 5th Regular Concert, 2024, Seoul Arts Center IBK Chamber Hall</li><li>Musica Euphonium Tuba Ensemble — Re:TURN, 2024, Seoul Arts Center Recital Hall</li><li>Artenium Brass Band Masters Series with David Childs, 2024, Bucheon Arts Center Concert Hall</li><li>Graduation Recital, 2023, Lee Kang Sook Hall</li><li>National Symphony Orchestra of Korea — Pictures at an Exhibition, 2022, Seoul Arts Center Concert Hall</li><li>KNUA Wind Orchestra, 39th Regular Concert, 2022, Lee Kang Sook Hall</li><li>Euphonium Project in Korea — Ensemble, 2020, Mozart Hall</li></ol></div>
+    </section><section class="archive__chapter" id="archive-performance">
+      <header class="archive__chapter-head">
+        <span class="archive__numeral">II</span>
+        <h3 class="archive__chapter-title">Performance</h3>
+        <p class="archive__note">On stage — concerts, ensembles, and recitals.</p>
+      </header>
+      <div class="archive__grid"><figure class="archive__item archive__item--feature" tabindex="0">
+      <div class="archive__frame">
+        <div class="media archive__media">
+      <div class="media__ph" aria-hidden="true">
+        <svg viewBox="0 0 400 400" preserveAspectRatio="xMaxYMax slice">
+          <circle cx="400" cy="400" r="70"></circle><circle cx="400" cy="400" r="130"></circle>
+          <circle cx="400" cy="400" r="190"></circle><circle cx="400" cy="400" r="250"></circle>
+          <circle cx="400" cy="400" r="310"></circle>
+        </svg>
+        
+      </div>
+      <img src="assets/images/archive/ensemble-01.jpg" alt="Euphonium &amp; Tuba Quartet" loading="lazy" onerror="this.remove()">
+    </div>
+        <div class="archive__hover" aria-hidden="true">
+          <span class="archive__hover-title">Euphonium &amp; Tuba Quartet</span>
+          
+        </div>
+      </div>
+      <figcaption class="archive__caption">
+        <span class="archive__num">01</span>
+        <span class="archive__kind">Ensemble</span>
+        <span class="visually-hidden">Euphonium &amp; Tuba Quartet</span>
+      </figcaption>
+    </figure><figure class="archive__item archive__item--tall" tabindex="0">
+      <div class="archive__frame">
+        <div class="media archive__media">
+      <div class="media__ph" aria-hidden="true">
+        <svg viewBox="0 0 400 400" preserveAspectRatio="xMaxYMax slice">
+          <circle cx="400" cy="400" r="70"></circle><circle cx="400" cy="400" r="130"></circle>
+          <circle cx="400" cy="400" r="190"></circle><circle cx="400" cy="400" r="250"></circle>
+          <circle cx="400" cy="400" r="310"></circle>
+        </svg>
+        
+      </div>
+      <img src="assets/images/archive/performance-01.jpg" alt="Concert / Performance" loading="lazy" onerror="this.remove()">
+    </div>
+        <div class="archive__hover" aria-hidden="true">
+          <span class="archive__hover-title">Concert / Performance</span>
+          
+        </div>
+      </div>
+      <figcaption class="archive__caption">
+        <span class="archive__num">02</span>
+        <span class="archive__kind">Concert / Performance</span>
+        <span class="visually-hidden">Concert / Performance</span>
+      </figcaption>
+    </figure><figure class="archive__item archive__item--center" tabindex="0">
+      <div class="archive__frame">
+        <div class="media archive__media">
+      <div class="media__ph" aria-hidden="true">
+        <svg viewBox="0 0 400 400" preserveAspectRatio="xMaxYMax slice">
+          <circle cx="400" cy="400" r="70"></circle><circle cx="400" cy="400" r="130"></circle>
+          <circle cx="400" cy="400" r="190"></circle><circle cx="400" cy="400" r="250"></circle>
+          <circle cx="400" cy="400" r="310"></circle>
+        </svg>
+        
+      </div>
+      <img src="assets/images/archive/performance-02.jpg" alt="K-ARTS Graduation Recital" style="object-position: 50% 100%" loading="lazy" onerror="this.remove()">
+    </div>
+        <div class="archive__hover" aria-hidden="true">
+          <span class="archive__hover-title">K-ARTS Graduation Recital</span>
+          <span class="archive__hover-meta">2023 · Lee Kang Sook Hall</span>
+        </div>
+      </div>
+      <figcaption class="archive__caption">
+        <span class="archive__num">03</span>
+        <span class="archive__kind">Graduation Recital</span>
+        <span class="visually-hidden">K-ARTS Graduation Recital, 2023 · Lee Kang Sook Hall</span>
+      </figcaption>
+    </figure></div>
+    </section><section class="archive__chapter" id="archive-recordings">
+      <header class="archive__chapter-head">
+        <span class="archive__numeral">III</span>
+        <h3 class="archive__chapter-title">Recordings</h3>
+        <p class="archive__note">Performance videos.</p>
+      </header>
+      <ul class="videos"><li class="video">
+      <button class="video__frame" type="button" data-youtube="8-bzV0mYoyI" aria-label="Play video: Him — J.P. Vanbeselaere">
+        <img src="https://i.ytimg.com/vi/8-bzV0mYoyI/hqdefault.jpg" alt="" loading="lazy">
+        <span class="video__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"></path></svg></span>
+      </button>
+      <div class="video__caption">
+        <p class="video__kind">Euphonium</p>
+        <h4 class="video__title">Him</h4>
+        <p class="video__composer">J.P. Vanbeselaere</p>
+        <a class="video__link" href="https://www.youtube.com/watch?v=8-bzV0mYoyI" target="_blank" rel="noopener">YouTube ↗</a>
+      </div>
+    </li><li class="video">
+      <button class="video__frame" type="button" data-youtube="CbQ9zI5kV9U" aria-label="Play video: Euphonium Concerto — V. Cosma">
+        <img src="https://i.ytimg.com/vi/CbQ9zI5kV9U/hqdefault.jpg" alt="" loading="lazy">
+        <span class="video__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"></path></svg></span>
+      </button>
+      <div class="video__caption">
+        <p class="video__kind">Euphonium</p>
+        <h4 class="video__title">Euphonium Concerto</h4>
+        <p class="video__composer">V. Cosma</p>
+        <a class="video__link" href="https://www.youtube.com/watch?v=CbQ9zI5kV9U" target="_blank" rel="noopener">YouTube ↗</a>
+      </div>
+    </li><li class="video">
+      <button class="video__frame" type="button" data-youtube="kU4c0gm4eK0" aria-label="Play video: Esmeralda">
+        <img src="https://i.ytimg.com/vi/kU4c0gm4eK0/hqdefault.jpg" alt="" loading="lazy">
+        <span class="video__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"></path></svg></span>
+      </button>
+      <div class="video__caption">
+        <p class="video__kind">Quartet · Traum Quartet</p>
+        <h4 class="video__title">Esmeralda</h4>
+        
+        <a class="video__link" href="https://www.youtube.com/watch?v=kU4c0gm4eK0" target="_blank" rel="noopener">YouTube ↗</a>
+      </div>
+    </li></ul>
+    </section><section class="archive__chapter" id="archive-studio">
+      <header class="archive__chapter-head">
+        <span class="archive__numeral">IV</span>
+        <h3 class="archive__chapter-title">Studio</h3>
+        <p class="archive__note">The performer, in still frames.</p>
+      </header>
+      <div class="archive__grid"><figure class="archive__item archive__item--portrait-l" tabindex="0">
+      <div class="archive__frame">
+        <div class="media archive__media">
+      <div class="media__ph" aria-hidden="true">
+        <svg viewBox="0 0 400 400" preserveAspectRatio="xMaxYMax slice">
+          <circle cx="400" cy="400" r="70"></circle><circle cx="400" cy="400" r="130"></circle>
+          <circle cx="400" cy="400" r="190"></circle><circle cx="400" cy="400" r="250"></circle>
+          <circle cx="400" cy="400" r="310"></circle>
+        </svg>
+        
+      </div>
+      <img src="assets/images/archive/studio-01.jpg" alt="Portrait with Euphonium" loading="lazy" onerror="this.remove()">
+    </div>
+        <div class="archive__hover" aria-hidden="true">
+          <span class="archive__hover-title">Portrait with Euphonium</span>
+          
+        </div>
+      </div>
+      <figcaption class="archive__caption">
+        <span class="archive__num">01</span>
+        <span class="archive__kind">Studio</span>
+        <span class="visually-hidden">Portrait with Euphonium</span>
+      </figcaption>
+    </figure><figure class="archive__item archive__item--portrait-r" tabindex="0">
+      <div class="archive__frame">
+        <div class="media archive__media">
+      <div class="media__ph" aria-hidden="true">
+        <svg viewBox="0 0 400 400" preserveAspectRatio="xMaxYMax slice">
+          <circle cx="400" cy="400" r="70"></circle><circle cx="400" cy="400" r="130"></circle>
+          <circle cx="400" cy="400" r="190"></circle><circle cx="400" cy="400" r="250"></circle>
+          <circle cx="400" cy="400" r="310"></circle>
+        </svg>
+        
+      </div>
+      <img src="assets/images/archive/studio-02.jpg" alt="Film Portrait" loading="lazy" onerror="this.remove()">
+    </div>
+        <div class="archive__hover" aria-hidden="true">
+          <span class="archive__hover-title">Film Portrait</span>
+          
+        </div>
+      </div>
+      <figcaption class="archive__caption">
+        <span class="archive__num">02</span>
+        <span class="archive__kind">Studio</span>
+        <span class="visually-hidden">Film Portrait</span>
+      </figcaption>
+    </figure></div>
+    </section><section class="archive__chapter" id="archive-projects">
+      <header class="archive__chapter-head">
+        <span class="archive__numeral">V</span>
+        <h3 class="archive__chapter-title">Projects</h3>
+        <p class="archive__note">Collaborative and coursework projects.</p>
+      </header>
+      <ol class="notes"><li class="note">
+      <p class="note__year">2022</p>
+      <div class="note__body">
+        <p class="note__kind">Audio-Immersive Sound Piece</p>
+        <h4 class="note__title">Nightmare (악몽)</h4>
+        <p class="note__context">Final project, Musicking (liberal arts course) · Team of six, planned and produced together</p>
+        <p class="note__role"><span>My Role</span>Proposed the concept of a nightmare in an empty school; recorded euphonium breath sounds for the soundtrack.</p>
+        <p class="note__text">An audio-immersive piece about an empty school at night. Listeners in a lecture room put their heads down, close their eyes and hear one shared soundtrack through earphones or the room speakers: rain, a ticking clock, a door in the wind, creaking desks and radio noise, over a cheolhyeongeum (Korean steel-string zither) melody. The aim was to make a familiar, crowded classroom feel empty and uncanny, so that each listener is alone in the sound while the whole room shares it.</p>
+      </div>
+    </li></ol>
+    </section>
+    <section class="record" id="archive-record">
+      <header class="archive__chapter-head">
+        <span class="archive__numeral">—</span>
+        <h3 class="archive__chapter-title">Performance Experience</h3>
+      </header>
+      <ol class="record__years">
+        <li class="record__year">
+              <h4 class="record__year-label">2024</h4>
+              <ul class="record__items">
+                <li class="record__item">
+                      <p class="record__title">Musica Euphonium Tuba Ensemble</p>
+                      
+                      <p class="record__venue">Seoul Arts Center</p>
+                    </li><li class="record__item">
+                      <p class="record__title">Artenium Brass Band with David Childs</p>
+                      
+                      <p class="record__venue">Bucheon Arts Center Concert Hall</p>
+                    </li>
+              </ul>
+            </li><li class="record__year">
+              <h4 class="record__year-label">2023</h4>
+              <ul class="record__items">
+                <li class="record__item">
+                      <p class="record__title">K-ARTS Graduation Recital</p>
+                      
+                      <p class="record__venue">Lee Kang Sook Hall, Korea National University of Arts</p>
+                    </li><li class="record__item">
+                      <p class="record__title">Artenium Brass Band with Bastien Baumet</p>
+                      
+                      <p class="record__venue">Konkuk University Saecheonnyeon Hall Concert Hall</p>
+                    </li><li class="record__item">
+                      <p class="record__title">Masterclass with Bastien Baumet</p>
+                      
+                      <p class="record__venue">Korea National University of Arts</p>
+                    </li>
+              </ul>
+            </li><li class="record__year">
+              <h4 class="record__year-label">2022</h4>
+              <ul class="record__items">
+                <li class="record__item">
+                      <p class="record__title">Participant, Jeju International Brass &amp; Percussion Competition</p>
+                      
+                      <p class="record__venue">Jeju</p>
+                    </li><li class="record__item">
+                      <p class="record__title">National Symphony Orchestra of Korea with Alexandre Malofeev</p>
+                      
+                      <p class="record__venue">Tongyeong Concert Hall</p>
+                    </li><li class="record__item">
+                      <p class="record__title">National Symphony Orchestra of Korea</p>
+                      <p class="record__detail">Solo Euphonium Part in Pictures at an Exhibition</p>
+                      <p class="record__venue">Seoul Arts Center Concert Hall</p>
+                    </li><li class="record__item">
+                      <p class="record__title">Seoul Wind Orchestra, 110th Regular Concert</p>
+                      <p class="record__detail">Korean Premiere of Symphony No.1 by Carlos Pellicer</p>
+                      <p class="record__venue">Lotte Concert Hall</p>
+                    </li><li class="record__item">
+                      <p class="record__title">Kuna Wind Orchestra</p>
+                      
+                      <p class="record__venue">Lee Kang Sook Hall</p>
+                    </li><li class="record__item">
+                      <p class="record__title">Chamber Ensemble Recital</p>
+                      
+                      <p class="record__venue">Lee Kang Sook Hall</p>
+                    </li>
+              </ul>
+            </li><li class="record__year">
+              <h4 class="record__year-label">2020</h4>
+              <ul class="record__items">
+                <li class="record__item">
+                      <p class="record__title">Euphonium Project in Korea</p>
+                      
+                      <p class="record__venue">Mozart Hall</p>
+                    </li>
+              </ul>
+            </li><li class="record__year">
+              <h4 class="record__year-label">2019</h4>
+              <ul class="record__items">
+                <li class="record__item">
+                      <p class="record__title">Jinhae Military Band &amp; Honor Guard Festival</p>
+                      <p class="record__detail">Marching Band Performance</p>
+                      <p class="record__venue">Jinhae</p>
+                    </li><li class="record__item">
+                      <p class="record__title">Masterclass with Corentin Morvan</p>
+                      
+                      <p class="record__venue">Korea National University of Arts</p>
+                    </li>
+              </ul>
+            </li>
+      </ol>
+    </section>
+    <p class="archive__outro"><span>From performance to research — the record continues.</span>
+            <a class="archive__outro-link" href="#research">Research<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a></p><!--/pre--></section>
+    <section class="section" id="cv"><!--pre--><div class="cv-head">
+      <header class="section-head">
+      <p class="kicker"><span class="kicker__num">07</span>Curriculum Vitae</p>
+      <h2 class="section-title">CV</h2>
+      
+    </header>
+      <a class="btn" href="assets/cv/cv.pdf" target="_blank" rel="noopener" download="">Download CV (PDF)<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14"></path></svg></a>
+    </div>
+    <div class="cv"><section class="cv-section" id="cv-education">
+      <h3 class="cv-section__title">Education</h3>
+      <div class="cv-section__body"><ol class="cv-entries"><li class="cv-entry">
+      <div class="cv-entry__period">2020 – 2024</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">Korea National University of Arts</h4>
+        <p class="cv-entry__sub">Euphonium Performance</p>
+        
+        
+        
+      </div>
+    </li></ol></div>
+    </section><section class="cv-section" id="cv-research-experience">
+      <h3 class="cv-section__title">Research Experience</h3>
+      <div class="cv-section__body"><ol class="cv-entries"><li class="cv-entry">
+      <div class="cv-entry__period">2026 – Present</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">Research Project Participant</h4>
+        <p class="cv-entry__sub">MATINE, KAIST (Prof. Jinwoo Lee)</p>
+        
+        
+        <ul class="cv-entry__items"><li>Investigating how breathing affects instrument sound, using sensors loaned free of charge by Yamaha</li></ul>
+      </div>
+    </li><li class="cv-entry">
+      <div class="cv-entry__period">2026 – Present</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">Research Intern</h4>
+        <p class="cv-entry__sub">IBD Lab, KAIST (Prof. Jihyun Lee)</p>
+        
+        
+        <ul class="cv-entry__items"><li>Generative AI-Based Design Interpretation &amp; Evaluation</li><li>Smart Mirror Project</li></ul>
+      </div>
+    </li><li class="cv-entry">
+      <div class="cv-entry__period">July – August 2026</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">Research Assistant – Multimodal Interface Evaluation</h4>
+        <p class="cv-entry__sub">ETRI, AI Robot UX Research Lab</p>
+        
+        
+        <ul class="cv-entry__items"><li>Supported user experiments on multimodal interface effectiveness in conditional autonomous driving environments</li></ul>
+      </div>
+    </li></ol></div>
+    </section><section class="cv-section" id="cv-cv-publications">
+      <h3 class="cv-section__title">Publications</h3>
+      <div class="cv-section__body"><ol class="cv-entries"><li class="cv-entry">
+      <div class="cv-entry__period">2026</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">An Integrated Framework for Multidimensional Evaluation of Service Design</h4>
+        <p class="cv-entry__sub">Min, S., Kim, G., Hong, Y., Youn, Y., Yum, J., Jang, E., Hyun, S., &amp; Lee, J.</p>
+        <p class="cv-entry__meta">Archives of Design Research · Accepted with Revision · SCOPUS</p>
+        
+        
+      </div>
+    </li><li class="cv-entry">
+      <div class="cv-entry__period">2026</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">Stress Prediction Using Personalized Pre-Sleep Lifelog Features</h4>
+        <p class="cv-entry__sub">Kyeongran Moon, Sujin Hyun</p>
+        <p class="cv-entry__meta">Accepted · ICTC 2026 · Conference Presentation, Jeju, Korea</p>
+        
+        
+      </div>
+    </li></ol></div>
+    </section><section class="cv-section" id="cv-cv-patents">
+      <h3 class="cv-section__title">Patents</h3>
+      <div class="cv-section__body"><ol class="cv-entries"><li class="cv-entry">
+      <div class="cv-entry__period">2026</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">AI-based Integrated Monitoring Method and Device for Companion Animals Using Stress Analysis and Event Records</h4>
+        <p class="cv-entry__sub">Patent Application · Application No. 10-2026-0042437 · Filed: March 10, 2026</p>
+        
+        
+        
+      </div>
+    </li><li class="cv-entry">
+      <div class="cv-entry__period">2026</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">Risk Assessment Method and Device for AI-Based Companion Animal Care Services</h4>
+        <p class="cv-entry__sub">Patent Application · Application No. 10-2026-0042438 · Filed: March 10, 2026</p>
+        
+        
+        
+      </div>
+    </li></ol></div>
+    </section><section class="cv-section" id="cv-professional-experience">
+      <h3 class="cv-section__title">Professional Experience</h3>
+      <div class="cv-section__body"><ol class="cv-entries"><li class="cv-entry">
+      <div class="cv-entry__period">2023 – Present</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">Euphonium Instructor</h4>
+        <p class="cv-entry__sub">Baemoon High School Wind Orchestra, Seoul</p>
+        
+        
+        <ul class="cv-entry__items"><li>Monthly euphonium section lessons for student members</li></ul>
+      </div>
+    </li><li class="cv-entry">
+      <div class="cv-entry__period">2026</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">Frontend Developer</h4>
+        <p class="cv-entry__sub">Gonggan Insoft</p>
+        
+        
+        
+      </div>
+    </li><li class="cv-entry">
+      <div class="cv-entry__period">2024 – 2025</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">Performance Planning &amp; Operations</h4>
+        <p class="cv-entry__sub">Teamplay Arts Planning</p>
+        
+        
+        
+      </div>
+    </li></ol></div>
+    </section><section class="cv-section" id="cv-selected-performances">
+      <h3 class="cv-section__title">Selected Performances</h3>
+      <div class="cv-section__body"><ol class="cv-entries"><li class="cv-entry">
+      <div class="cv-entry__period">2024</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">Musica Euphonium Tuba Ensemble</h4>
+        <p class="cv-entry__sub">Seoul Arts Center</p>
+        
+        
+        
+      </div>
+    </li><li class="cv-entry">
+      <div class="cv-entry__period">2024</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">Artenium Brass Band with David Childs</h4>
+        <p class="cv-entry__sub">Bucheon Arts Center Concert Hall</p>
+        
+        
+        
+      </div>
+    </li><li class="cv-entry">
+      <div class="cv-entry__period">2023</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">K-ARTS Graduation Recital</h4>
+        <p class="cv-entry__sub">Lee Kang Sook Hall, Korea National University of Arts</p>
+        
+        
+        
+      </div>
+    </li><li class="cv-entry">
+      <div class="cv-entry__period">2023</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">Artenium Brass Band with Bastien Baumet</h4>
+        <p class="cv-entry__sub">Konkuk University Saecheonnyeon Hall Concert Hall</p>
+        
+        
+        
+      </div>
+    </li><li class="cv-entry">
+      <div class="cv-entry__period">2022</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">National Symphony Orchestra of Korea</h4>
+        <p class="cv-entry__sub">Seoul Arts Center Concert Hall</p>
+        <p class="cv-entry__meta">Solo Euphonium Part in Pictures at an Exhibition</p>
+        
+        
+      </div>
+    </li><li class="cv-entry">
+      <div class="cv-entry__period">2022</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">Seoul Wind Orchestra, 110th Regular Concert</h4>
+        <p class="cv-entry__sub">Lotte Concert Hall</p>
+        <p class="cv-entry__meta">Korean Premiere of Symphony No.1 by Carlos Pellicer</p>
+        
+        
+      </div>
+    </li><li class="cv-entry">
+      <div class="cv-entry__period">2022</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">Kuna Wind Orchestra</h4>
+        <p class="cv-entry__sub">Lee Kang Sook Hall</p>
+        
+        
+        
+      </div>
+    </li></ol><p class="cv-section__note">Full performance record in the
+          <a href="#archive">Archive</a>.</p></div>
+    </section><section class="cv-section" id="cv-awards">
+      <h3 class="cv-section__title">Awards &amp; Activities</h3>
+      <div class="cv-section__body"><div class="cv-group">
+              <p class="cv-group__label">Awards &amp; Honors</p>
+              <ol class="cv-entries"><li class="cv-entry">
+      <div class="cv-entry__period">2019</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">1st Prize, Music Education Newspaper Competition</h4>
+        
+        
+        
+        
+      </div>
+    </li><li class="cv-entry">
+      <div class="cv-entry__period">2019</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">1st Prize, Korean Music Association Competition</h4>
+        
+        
+        
+        
+      </div>
+    </li><li class="cv-entry">
+      <div class="cv-entry__period">2019</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">2nd Prize, National University Wind Orchestra Brass Competition</h4>
+        
+        
+        
+        
+      </div>
+    </li></ol>
+            </div><div class="cv-group">
+              <p class="cv-group__label">Entrepreneurship &amp; Activities</p>
+              <ol class="cv-entries"><li class="cv-entry">
+      <div class="cv-entry__period">2026</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">CG&amp;I × KAIST ARRC 2026 XR·AI Winter School Hackathon</h4>
+        <p class="cv-entry__sub">Participant · Team Madimadi (2 members)</p>
+        
+        
+        
+      </div>
+    </li><li class="cv-entry">
+      <div class="cv-entry__period">2026 – Present</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">KAIST App Startup Program, 6th Cohort</h4>
+        <p class="cv-entry__sub">Team Leader, Team K² — ByStage</p>
+        
+        
+        <ul class="cv-entry__items"><li>Performance booking &amp; payment platform · Passed Stage 2, working toward Stage 3</li></ul>
+      </div>
+    </li><li class="cv-entry">
+      <div class="cv-entry__period">2026</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">2026 PIN UP Concept Design Awards</h4>
+        <p class="cv-entry__sub">Participant</p>
+        
+        
+        
+      </div>
+    </li></ol>
+            </div></div>
+    </section><section class="cv-section" id="cv-certifications">
+      <h3 class="cv-section__title">Certifications &amp; Training</h3>
+      <div class="cv-section__body"><div class="cv-group">
+              <p class="cv-group__label">Certifications</p>
+              <ol class="cv-entries"><li class="cv-entry">
+      <div class="cv-entry__period">2026</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">Adobe Certified Professional (ACP)</h4>
+        <p class="cv-entry__sub">Photoshop · Illustrator · Visual Design</p>
+        
+        
+        
+      </div>
+    </li><li class="cv-entry">
+      <div class="cv-entry__period">2026</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">GTQ Graphic Technology Qualification Level 1</h4>
+        
+        
+        
+        
+      </div>
+    </li></ol>
+            </div><div class="cv-group">
+              <p class="cv-group__label">Training</p>
+              <ol class="cv-entries"><li class="cv-entry">
+      <div class="cv-entry__period">2026</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">AI &amp; Development Training</h4>
+        <p class="cv-entry__sub">KAIST</p>
+        
+        
+        <ul class="cv-entry__items"><li>OpenClaw: Agentic AI System Development</li><li>Vibe Coding-Based Web Service Development</li></ul>
+      </div>
+    </li><li class="cv-entry">
+      <div class="cv-entry__period">2026</div>
+      <div class="cv-entry__body">
+        <h4 class="cv-entry__heading">Python Programming</h4>
+        
+        
+        
+        <ul class="cv-entry__items"><li>Programming Fundamentals with Python A (KAIST)</li><li>Python Programming Fundamentals (Codeit)</li></ul>
+      </div>
+    </li></ol>
+            </div></div>
+    </section><section class="cv-section" id="cv-skills">
+      <h3 class="cv-section__title">Skills</h3>
+      <div class="cv-section__body"><ul class="tags cv-tags"><li class="tag tag--outline">Research</li><li class="tag tag--outline">HCI / UX</li><li class="tag tag--outline">Service Design</li><li class="tag tag--outline">Interaction Design</li><li class="tag tag--outline">UI/UX Design</li><li class="tag tag--outline">Frontend Development</li><li class="tag tag--outline">Web Development</li><li class="tag tag--outline">AI Tools</li><li class="tag tag--outline">Music Technology</li><li class="tag tag--outline">Python</li><li class="tag tag--outline">Data Collection</li><li class="tag tag--outline">Adobe Creative Suite</li></ul></div>
+    </section></div><!--/pre--></section>
+    <footer class="footer" id="footer"><!--pre--><div class="contact-block" id="contact">
+      <p class="kicker">Contact</p>
+      <p class="contact-block__title">Sujin Hyun</p>
+      <ul class="contact contact--large">
+      <li><a class="contact__item" href="mailto:gustnwls23@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3.5 6.5 8.5 6.5 8.5-6.5"></path></svg><span>gustnwls23@gmail.com</span></a></li><li><a class="contact__item" href="https://www.instagram.com/hyunsujin__/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5v.01"></path></svg><span>@hyunsujin__</span></a></li>
+    </ul>
+    </div>
+    <div class="footer__base">
+      <p>© 2026 Sujin Hyun</p>
+      <p class="footer__tag">Music × Technology × Human Experience</p>
+    </div><!--/pre--></footer>
   </main>
-
-  <noscript><p style="padding:2rem">This site needs JavaScript enabled to display its content.</p></noscript>
 
   <script src="js/content.js"></script>
   <script src="js/content.ko.js"></script>

@@ -14,21 +14,147 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+KR:wght@400;500&family=Noto+Sans+KR:wght@400;500&display=swap">
+  <!-- Korean visitors: hide the saved (English) text until js/ redraws the page -->
+  <script>try{var l=new URLSearchParams(location.search).get("lang")||localStorage.getItem("site-lang");if(l==="ko")document.documentElement.className+=" is-redrawing"}catch(e){}</script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <!-- `data-project` = the project's `id` in js/content.js -->
 <body data-project="stress-prediction">
   <a class="skip" href="#main">Skip to content</a>
 
-  <header class="topbar" id="topbar"></header>
-  <aside class="sidebar" id="sidebar"></aside>
+  <header class="topbar" id="topbar"><!--pre--><a class="topbar__name" href="index.html#top">Sujin Hyun</a>
+    <div class="lang lang--compact" role="group" aria-label="Language">
+      <button type="button" class="lang__opt" data-lang="en" lang="en" aria-pressed="true">EN</button><span class="lang__sep" aria-hidden="true">/</span><button type="button" class="lang__opt" data-lang="ko" lang="ko" aria-pressed="false">한국어</button>
+    </div>
+    <nav class="nav nav--compact" aria-label="Main">
+      <ol class="nav__list">
+        <li><a class="nav__link" href="index.html#top" data-nav="top">
+              <span class="nav__num">01</span>
+              <span class="nav__label">About</span>
+            </a></li><li><a class="nav__link" href="index.html#research" data-nav="research">
+              <span class="nav__num">02</span>
+              <span class="nav__label">Research</span>
+            </a></li><li><a class="nav__link" href="index.html#venture" data-nav="venture">
+              <span class="nav__num">03</span>
+              <span class="nav__label">Venture</span>
+            </a></li><li><a class="nav__link" href="index.html#publications" data-nav="publications">
+              <span class="nav__num">04</span>
+              <span class="nav__label">Publications</span>
+            </a></li><li><a class="nav__link" href="index.html#patents" data-nav="patents">
+              <span class="nav__num">05</span>
+              <span class="nav__label">Patents</span>
+            </a></li><li><a class="nav__link" href="index.html#archive" data-nav="archive">
+              <span class="nav__num">06</span>
+              <span class="nav__label">Archive</span>
+            </a></li><li><a class="nav__link" href="index.html#cv" data-nav="cv">
+              <span class="nav__num">07</span>
+              <span class="nav__label">CV</span>
+            </a></li>
+      </ol>
+    </nav><!--/pre--></header>
+  <aside class="sidebar" id="sidebar"><!--pre--><div class="sidebar__inner">
+        <a class="sidebar__identity" href="index.html#top">
+          <div class="avatar">
+      <span class="avatar__initials" aria-hidden="true">SH</span>
+      <img src="assets/images/portrait-main.jpg" alt="Sujin Hyun" onerror="this.remove()">
+    </div>
+          <span class="sidebar__name">Sujin Hyun</span>
+        </a>
+        <div class="sidebar__role">
+          <p class="sidebar__title">Research Intern</p>
+          <p class="sidebar__aff">IBD Lab, KAIST</p>
+          <p class="sidebar__background">Euphonium Performance</p>
+        </div>
+        <nav class="nav " aria-label="Main">
+      <ol class="nav__list">
+        <li><a class="nav__link" href="index.html#top" data-nav="top">
+              <span class="nav__num">01</span>
+              <span class="nav__label">About</span>
+            </a></li><li><a class="nav__link" href="index.html#research" data-nav="research">
+              <span class="nav__num">02</span>
+              <span class="nav__label">Research</span>
+            </a></li><li><a class="nav__link" href="index.html#venture" data-nav="venture">
+              <span class="nav__num">03</span>
+              <span class="nav__label">Venture</span>
+            </a></li><li><a class="nav__link" href="index.html#publications" data-nav="publications">
+              <span class="nav__num">04</span>
+              <span class="nav__label">Publications</span>
+            </a></li><li><a class="nav__link" href="index.html#patents" data-nav="patents">
+              <span class="nav__num">05</span>
+              <span class="nav__label">Patents</span>
+            </a></li><li><a class="nav__link" href="index.html#archive" data-nav="archive">
+              <span class="nav__num">06</span>
+              <span class="nav__label">Archive</span>
+            </a></li><li><a class="nav__link" href="index.html#cv" data-nav="cv">
+              <span class="nav__num">07</span>
+              <span class="nav__label">CV</span>
+            </a></li>
+      </ol>
+    </nav>
+        <div class="lang " role="group" aria-label="Language">
+      <button type="button" class="lang__opt" data-lang="en" lang="en" aria-pressed="true">EN</button><span class="lang__sep" aria-hidden="true">/</span><button type="button" class="lang__opt" data-lang="ko" lang="ko" aria-pressed="false">한국어</button>
+    </div>
+        <ul class="contact ">
+      <li><a class="contact__item" href="mailto:gustnwls23@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3.5 6.5 8.5 6.5 8.5-6.5"></path></svg><span>gustnwls23@gmail.com</span></a></li><li><a class="contact__item" href="https://www.instagram.com/hyunsujin__/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5v.01"></path></svg><span>@hyunsujin__</span></a></li>
+    </ul>
+      </div><!--/pre--></aside>
 
   <main class="main" id="main">
-    <article class="project" id="project"></article>
-    <footer class="footer footer--slim" id="footer"></footer>
-  </main>
+    <article class="project" id="project"><!--pre--><header class="project__head">
+      <a class="project__back" href="index.html#project-stress-prediction">← Research</a>
+      <p class="kicker">Research Publication</p>
+      <h1 class="project__title">Stress Prediction Using Personalized Pre-Sleep Lifelog Features</h1>
+      <dl class="project__info">
+        <div><dt>Conference</dt><dd>ICTC 2026</dd></div><div><dt>Format</dt><dd>Poster Presentation</dd></div><div><dt>Authors</dt><dd>Kyeongran Moon · Sujin Hyun</dd></div><div><dt>Context</dt><dd>DACON × ETRI Lifelog Dataset / Paper Competition</dd></div>
+      </dl>
+      <p class="project__affs"><span>Hongik University — Electronics and Electrical Engineering</span><span>KAIST — Culture Technology, IBD Lab</span></p>
+    </header>
 
-  <noscript><p style="padding:2rem">This site needs JavaScript enabled to display its content.</p></noscript>
+    <section class="project__overview">
+      <h2 class="subhead">Overview</h2>
+      <p>This study predicts pre-sleep stress (Q3) from smartphone and wearable lifelog data in the DACON/ETRI Lifelog Dataset 2024. It combines raw behavioral and environmental features from the 30 minutes before bedtime with personalized Z-score features, which read each signal relative to a person's own baseline, and recent questionnaire and sleep history. Regularized logistic regression was evaluated with nested chronological and nested leave-one-user-out validation.</p>
+    </section>
+
+    <section class="project__materials">
+      <h2 class="subhead">Research Materials</h2>
+      <div class="materials"><article class="material">
+      <header class="material__head">
+        <div>
+          <p class="material__type">PDF</p>
+          <h3 class="material__title">Conference Poster</h3>
+          <p class="material__note">ICTC 2026 · Poster Presentation</p>
+        </div>
+        <div class="material__actions"><a class="btn" href="assets/papers/ictc2026-stress-prediction-poster.pdf" target="_blank" rel="noopener">Open in new tab<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>
+         <a class="btn" href="assets/papers/ictc2026-stress-prediction-poster.pdf" download="">Download PDF<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14"></path></svg></a></div>
+      </header>
+      
+      <div class="material__viewer">
+            <object class="material__pdf" data="assets/papers/ictc2026-stress-prediction-poster.pdf#navpanes=0&amp;view=FitH" type="application/pdf" aria-label="Conference Poster (PDF)"><a class="material__fallback" href="assets/papers/ictc2026-stress-prediction-poster.pdf" target="_blank" rel="noopener">
+          <img src="assets/images/research/ictc2026-stress-prediction-poster.jpg" alt="Conference Poster" loading="lazy">
+        </a></object>
+            <div class="material__mobile"><a class="material__fallback" href="assets/papers/ictc2026-stress-prediction-poster.pdf" target="_blank" rel="noopener">
+          <img src="assets/images/research/ictc2026-stress-prediction-poster.jpg" alt="Conference Poster" loading="lazy">
+        </a></div>
+          </div>
+    </article><article class="material">
+      <header class="material__head">
+        <div>
+          <p class="material__type">PDF</p>
+          <h3 class="material__title">Research Paper</h3>
+          <p class="material__note">ICTC 2026 · Full paper (PDF)</p>
+        </div>
+        <div class="material__actions"><a class="btn" href="assets/papers/ictc2026-stress-prediction-paper.pdf" target="_blank" rel="noopener">Open in new tab<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>
+         <a class="btn" href="assets/papers/ictc2026-stress-prediction-paper.pdf" download="">Download PDF<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14"></path></svg></a></div>
+      </header>
+      
+      
+    </article></div>
+    </section><!--/pre--></article>
+    <footer class="footer footer--slim" id="footer"><!--pre--><div class="footer__base">
+      <p>© 2026 Sujin Hyun</p>
+      <a class="footer__tag" href="index.html#research">Back to Research</a>
+    </div><!--/pre--></footer>
+  </main>
 
   <script src="js/content.js"></script>
   <script src="js/content.ko.js"></script>

@@ -47,7 +47,13 @@ Music × Technology × Human Experience — 개인 연구 포트폴리오 (GitHu
 기타 파일
 - 논문 PDF → `assets/papers/`
 - CV PDF → `assets/cv/`
-  - `assets/cv/cv.pdf`는 `tools/cv-print.html`(`js/content.js`의 `cv` 데이터)로 만듭니다. CV 내용을 바꾸면 다시 만들어야 합니다: 저장소 폴더에서 `python3 -m http.server 8765` 실행 후 Chrome headless로 `--print-to-pdf=assets/cv/cv.pdf --no-pdf-header-footer http://localhost:8765/tools/cv-print.html`
+  - `assets/cv/cv.pdf`는 `tools/cv-print.html`(`js/content.js`의 `cv` 데이터)로 만듭니다. `sh tools/build.sh`가 함께 다시 만듭니다.
+
+## 내용을 고친 뒤에는 항상: `sh tools/build.sh`
+
+- `index.html`, `stress-prediction.html`에 완성된 화면의 글을 저장합니다 (`<!--pre-->` 표시 사이). 검색엔진·Claude처럼 JavaScript를 실행하지 않는 곳에서도 내용을 읽을 수 있게 하기 위해서입니다. 이 부분은 직접 고치지 마세요.
+- `assets/cv/cv.pdf`도 다시 만듭니다.
+- 새 페이지나 새 칸(section)을 추가하면 `tools/prerender.html`의 `CONTAINERS`에도 추가하세요.
 
 ## 한국어 버전 — `js/content.ko.js`
 

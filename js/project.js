@@ -63,4 +63,5 @@
       <p>© ${new Date().getFullYear()} ${esc(p.name)}</p>
       <a class="footer__tag" href="${HOME}#research">${esc(ui("backToResearch"))}</a>
     </div>`;
+  document.documentElement.classList.remove("is-redrawing");
 })();
