@@ -15,6 +15,7 @@ Music × Technology × Human Experience — 개인 연구 포트폴리오 (GitHu
 | 첫 화면 사진·문구 | `hero` |
 | 첫 화면 About 문장(리드·본문), 연구 관심 태그 | `about` |
 | 연구 프로젝트 (배열 순서 = 타임라인 순서) | `research` |
+| 창업 (Venture, 연구와 같은 카드 형식) | `venture` |
 | 논문 목록 | `publications` |
 | 특허 출원 목록 | `patents` |
 | Archive (사진 기록) | `archive` |

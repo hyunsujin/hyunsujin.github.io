@@ -50,6 +50,7 @@ window.SITE = {
   nav: [
     { id: "top", label: "About" }, // the intro screen doubles as About
     { id: "research", label: "Research" },
+    { id: "venture", label: "Venture" },
     { id: "publications", label: "Publications" },
     { id: "patents", label: "Patents" },
     { id: "archive", label: "Archive" },
@@ -224,6 +225,34 @@ window.SITE = {
             "Test Recording Production",
             "User Flow & Glasses UI Design",
             "Demo & Presentation",
+          ],
+          links: [],
+        },
+      ],
+    },
+  ],
+
+  /* ------------------------------------------------------------------ */
+  /* VENTURE — startup work. Same group/card layout as Research.         */
+  /* Add prototypes, launches and store links to `links` as they come.   */
+  /* ------------------------------------------------------------------ */
+  venture: [
+    {
+      group: "KAIST App Startup Program, 6th Cohort",
+      meta: "Team K² · Team Leader · October 2026 – Present",
+      projects: [
+        {
+          id: "bystage",
+          title: "ByStage (바이스테이지)",
+          context: "Performance booking & payment platform · Passed Stage 2, working toward Stage 3",
+          summary:
+            "ByStage is a performance platform that connects organizers, performers and audiences around a single performance. At its core is the booking transaction: organizers find and book guest performers, and every step is recorded, from confirming terms to paying the performance fee. Through these bookings, performers build a verified career record, and finished performances open to audiences.",
+          role: [
+            "Overall Concept & Direction",
+            "Prototype Design",
+            "User Interviews",
+            "Customer Validation",
+            "Spec Design",
           ],
           links: [],
         },
@@ -553,7 +582,12 @@ window.SITE = {
           label: "Entrepreneurship & Activities",
           entries: [
             { heading: "CG&I × KAIST ARRC 2026 XR·AI Winter School Hackathon", sub: "Participant · Team Madimadi (2 members)", period: "2026" },
-            { heading: "KAIST App Startup Program, 6th Cohort", sub: "Participant", period: "2026 – Present" },
+            {
+              heading: "KAIST App Startup Program, 6th Cohort",
+              sub: "Team Leader, Team K² — ByStage",
+              period: "2026 – Present",
+              items: ["Performance booking & payment platform · Passed Stage 2, working toward Stage 3"],
+            },
             { heading: "2026 PIN UP Concept Design Awards", sub: "Participant", period: "2026" },
           ],
         },
@@ -626,6 +660,9 @@ window.SITE = {
     researchKicker: "Research",
     researchTitle: "Research Experience",
     researchIntro: "Research projects I have taken part in, grouped by where they took place.",
+    ventureKicker: "Venture",
+    ventureTitle: "Startup",
+    ventureIntro: "A product I am building with my team, from idea to prototype.",
     publicationsKicker: "Publications",
     publicationsTitle: "Publications",
     patentsKicker: "Patents",

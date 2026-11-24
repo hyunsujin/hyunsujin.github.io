@@ -146,7 +146,7 @@
     let s = 0, T = 0; // current / target position, in posters
     let dragging = false, hover = -1, pointer = null;
     let tiltX = 0, tiltY = 0, dotYear = years[0];
-    let active = -1, raf = 0, last = 0, visible = true, isOpen = false;
+    let active = -1, raf = 0, last = 0, isOpen = false;
 
     /* ---------- caption (mask slide) ---------- */
     function slide(mask, html, dir) {
@@ -238,7 +238,7 @@
       if (Math.abs(yWant - dotYear) > 0.002) busy = true;
       dot.style.left = `${((dotYear - y0) / (y1 - y0)) * 100}%`;
 
-      if ((busy || dragging) && visible) kick();
+      if (busy || dragging) kick(); // the loop stops by itself once everything has settled
     }
     function kick() {
       if (!raf) raf = requestAnimationFrame(frame);
@@ -263,10 +263,23 @@
       down = { x: e.clientX, T0: T, id: e.pointerId };
       moved = false;
     });
+    // The tape under the pointer. The front poster is found by position:
+    // browsers can't hit-test its face (turned 90° inside a 3D box), so a
+    // click on it would otherwise land on the empty scene behind it.
+    function tapeAt(e) {
+      const tape = e.target.closest(".tape");
+      if (tape) return tape;
+      const front = els.find((t) => Math.abs(rel(t.v)) < 0.5);
+      if (!front) return null;
+      const c = front.cover.getBoundingClientRect();
+      const inside = e.clientX >= c.left && e.clientX <= c.right && e.clientY >= c.top && e.clientY <= c.bottom;
+      return inside ? front.el : null;
+    }
+
     viewport.addEventListener("pointermove", (e) => {
       const rect = viewport.getBoundingClientRect();
       pointer = { x: e.clientX - rect.left, y: e.clientY - rect.top };
-      const tape = e.target.closest(".tape");
+      const tape = tapeAt(e);
       hover = tape ? Number(tape.dataset.v) : -1;
       if (down && e.pointerId === down.id) {
         const dx = e.clientX - down.x;
@@ -288,7 +301,7 @@
     viewport.addEventListener("pointerleave", () => { pointer = null; hover = -1; kick(); });
     viewport.addEventListener("click", (e) => {
       if (moved) return; // that was a drag
-      const tape = e.target.closest(".tape");
+      const tape = tapeAt(e);
       if (!tape) return;
       const r = rel(Number(tape.dataset.v));
       if (Math.abs(r) < 0.5 && Math.abs(T - s) < 0.3) open();
@@ -469,8 +482,6 @@
 
     /* ---------- lifecycle ---------- */
     addEventListener("resize", measureSoon);
-    if ("IntersectionObserver" in window)
-      new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible) kick(); }).observe(viewport);
     measure();
   }
 

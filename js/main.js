@@ -76,6 +76,18 @@
     )}
     <ol class="timeline">${groups}</ol>`;
 
+  /* ---------- Venture (same timeline layout as Research) ---------- */
+  let vn = 0;
+  $("#venture").innerHTML = `
+    ${C.SectionHead(num("venture"), ui("ventureKicker"), ui("ventureTitle"), ui("ventureIntro"))}
+    <ol class="timeline">${S.venture
+      .map((g) => {
+        const html = C.ResearchGroup(g, vn);
+        vn += g.projects.length;
+        return html;
+      })
+      .join("")}</ol>`;
+
   /* ---------- Publications ---------- */
   $("#publications").innerHTML = `
     ${C.SectionHead(num("publications"), ui("publicationsKicker"), ui("publicationsTitle"))}
