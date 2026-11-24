@@ -208,6 +208,27 @@ window.SITE = {
         },
       ],
     },
+    {
+      group: "Hackathon",
+      meta: "CG&I × KAIST ARRC 2026 XR·AI Winter School · November 2026",
+      projects: [
+        {
+          id: "madimadi",
+          title: "Madimadi (마디마디): Smart-Glasses Rehearsal Assistant for Ensemble Players",
+          context: "Team of two · Rokid Glasses",
+          summary:
+            "In rehearsal, conductors give instructions without warning, and players can't write them down because their hands are on their instruments. Madimadi listens continuously: one tap on the glasses after an instruction saves the last 20 seconds. The speech becomes bar-by-bar cards (bar, part, issue type, short Korean keywords). When the conductor says \"from bar 34,\" that bar's card appears on the glasses. The remaining cards can be handed to substitute players as a list in bar order.",
+          role: [
+            "Concept Proposal",
+            "Prototype Implementation",
+            "Test Recording Production",
+            "User Flow & Glasses UI Design",
+            "Demo & Presentation",
+          ],
+          links: [],
+        },
+      ],
+    },
   ],
 
   /* ------------------------------------------------------------------ */
@@ -531,6 +552,7 @@ window.SITE = {
           // Participation only — never phrase these as awards.
           label: "Entrepreneurship & Activities",
           entries: [
+            { heading: "CG&I × KAIST ARRC 2026 XR·AI Winter School Hackathon", sub: "Participant · Team Madimadi (2 members)", period: "2026" },
             { heading: "KAIST App Startup Program, 6th Cohort", sub: "Participant", period: "2026 – Present" },
             { heading: "2026 PIN UP Concept Design Awards", sub: "Participant", period: "2026" },
           ],
